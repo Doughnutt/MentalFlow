@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    tools:context=".Activity.Fragment.Home.HomeFragment">
+
+    <View
+        android:id="@+id/home_dotted_line"
+        style="@style/DottedLine"/>
+
+    <TextView
+        style="@style/Text_Title"
+        android:text="Home Page"
+        />
+<RelativeLayout
+    android:id="@+id/relativelayout"
+    android:layout_width="288dp"
+    android:layout_height="144dp"
+    android:layout_marginTop="120dp"
+    android:layout_centerHorizontal="true">
+    <ImageButton
+        android:id="@+id/home_ib"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/home_today" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="今日推荐"
+        android:layout_marginLeft="20dp"
+        android:textSize="18sp"
+        android:layout_centerVertical="true"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        />
+</RelativeLayout>
+
+    <GridView
+        android:id="@+id/home_gv"
+        android:layout_width="360dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relativelayout"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:numColumns="4"
+        />
+
+</RelativeLayout>

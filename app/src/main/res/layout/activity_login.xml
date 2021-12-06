@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Activity.Activity.Initial.LoginActivity">
+    <ImageButton
+        android:id="@+id/login_back"
+        style="@style/Back_Button"/>
+    <ImageView
+        android:id="@+id/login_iv"
+        android:layout_width="130dp"
+        android:layout_height="125dp"
+        android:background="@mipmap/icon_colored"
+        android:layout_marginTop="180dp"
+        android:layout_centerHorizontal="true"/>
+    <EditText
+        android:id="@+id/login_et"
+        android:layout_width="202dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="350dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/blue_frame"
+        android:hint="@string/re_hint"
+        android:textColorHint="@color/gray" />
+    <Button
+        android:id="@+id/login_next"
+        style="@style/Next_Button"/>
+
+</RelativeLayout>

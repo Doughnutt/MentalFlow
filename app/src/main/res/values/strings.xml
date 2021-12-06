@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">MentalFlow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="psy_test">心理测试</string>
+    <string name="home_page">主页</string>
+    <string name="medical_info">Medical Info.</string>
+    <string name="ol_consult">在线问诊</string>
+    <string name="my_info">我的信息</string>
+    <string name="article">今日文章</string>
+    <string name="home_string">心理学简介</string>
+    <string name="test1_string">心理承受能力测试</string>
+    <string name="test2_string">威廉斯创造力倾向量表</string>
+    <string name="test_label">开始测试</string>
+    <string name="guide1">丰富的心理资讯帮助你捕捉需要的信息</string>
+    <string name="guide2">有趣的心理测试加深你对自己的了解</string>
+    <string name="guide3">专业的心理咨询师解决你的各类生活困惑</string>
+    <string name="guide4">特增穿戴设备协同管理你的身心健康</string>
+    <string name="guide5">祝你拥有自在的人生</string>
+    <string name="start_str">大学生心理健康评测软件</string>
+    <string name="gt_intro">量表共10题，大概耗时1分钟.包含情绪、心理健康、人际交往、学习、能力五个维度。采用五级打分制，每个句子后面有五个答案，请根据实际情况选择1个答案。 </string>
+    <string name="re_hint">输入手机号</string>
+    <string name="login_register">登录/注册</string>
+    <string name="Check_str">输入验证码</string>
+    <string name="Next">下一步</string>
+    <string name="YourName">你的名字？</string>
+    <string name="NameHint">取个有意思的名字吧</string>
+    <string name="YourSex">你的性别？</string>
+    <string name="GuideTest">为了对你的状态有初步一个了解请先完成这套自测量表</string>
+    <string name="psy_info">心理学简介</string>
+    <string name="label_kepu">科普</string>
+    <string name="psy_detail">心理学是一门研究人类心理现象及其影响下的精神功能…</string>
+    <string name="Request">咨询医生</string>
+    <string name="online_inquiry">Online Inquiry.</string>
+    <string name="mental_test">Mental Test.</string>
+    <string name="my_information">My Information.</string>
+
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    tools:context=".Activity.Fragment.Home.HardwareFragment">
+
+    <TextView
+
+        style="@style/Text_Title"
+        android:text="Hardware" />
+    <View
+        style="@style/DottedLine"
+        />
+    <RelativeLayout
+        android:layout_width="305dp"
+        android:layout_height="450dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp">
+        <ImageView
+            android:id="@+id/hardware_iv"
+            android:layout_width="305dp"
+            android:layout_height="269dp"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/hardware_img"/>
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/hardware_iv"
+            android:background="@mipmap/heartbeat"/>
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/hardware_iv"
+            android:background="@mipmap/sp_o2"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_alignParentBottom="true"
+            android:text="连接设备开启健康管理吧！"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"/>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
