@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.mentalflow.Activity.Activity.HomeActivity;
+import com.example.mentalflow.Activity.Activity.Initial.LoginActivity;
 import com.example.mentalflow.Activity.Fragment.BaseFragment;
 import com.example.mentalflow.R;
 
@@ -39,7 +40,7 @@ private Button mGuideButton;
 
     @Override
     protected void initData() {
-        mGuideButton.setOnClickListener(v -> navigateTo(HomeActivity.class));
+        mGuideButton.setOnClickListener(v -> navigateTo(LoginActivity.class));
 //        getActivity().finish();
     }
 }

@@ -1,4 +1,4 @@
-package com.example.mentalflow.Activity.Fragment.Home;
+package com.example.mentalflow.Activity.Fragment.MainFragment;
 
 import androidx.fragment.app.Fragment;
 
@@ -7,23 +7,24 @@ import com.example.mentalflow.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link MyInfoFragment#newInstance} factory method to
+ * Use the {@link HardwareFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MyInfoFragment extends BaseFragment {
+public class HardwareFragment extends BaseFragment {
 
-    public MyInfoFragment() {
+    public HardwareFragment() {
         // Required empty public constructor
     }
 
-    public static MyInfoFragment newInstance() {
-        MyInfoFragment fragment = new MyInfoFragment();
+
+    public static HardwareFragment newInstance() {
+        HardwareFragment fragment = new HardwareFragment();
         return fragment;
     }
 
     @Override
     protected int initLayout() {
-        return R.layout.fragment_my_info;
+        return R.layout.fragment_hardware;
     }
 
     @Override

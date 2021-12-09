@@ -9,7 +9,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/test_rv"
+        android:id="@+id/home_article_rv"
         android:layout_gravity="center_horizontal"
         android:layout_width="332dp"
         android:layout_height="match_parent"

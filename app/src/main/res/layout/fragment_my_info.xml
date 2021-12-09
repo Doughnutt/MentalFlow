@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_gray"
-    tools:context=".Activity.Fragment.Home.MyInfoFragment">
+    tools:context=".Activity.Fragment.MainFragment.MyInfoFragment">
     <TextView
         style="@style/Text_Title"
         android:text="@string/my_information" />

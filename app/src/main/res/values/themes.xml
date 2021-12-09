@@ -52,9 +52,7 @@
     <style name="Next_Button">
         <item name="android:layout_width">202dp</item>
         <item name="android:layout_height">38dp</item>
-        <item name="android:layout_marginStart">108dp</item>
-        <item name="android:layout_marginLeft">108dp</item>
-        <item name="android:layout_marginTop">420dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
         <item name="android:background">@drawable/dark_oval</item>
         <item name="android:text">@string/Next</item>
     </style>

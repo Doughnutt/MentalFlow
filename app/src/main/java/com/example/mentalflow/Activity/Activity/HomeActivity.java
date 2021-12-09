@@ -5,23 +5,18 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.mentalflow.Activity.Adapter.MyPagerAdapter;
 import com.example.mentalflow.Activity.Entity.TabEntity;
-import com.example.mentalflow.Activity.Fragment.Home.HardwareFragment;
-import com.example.mentalflow.Activity.Fragment.Home.HomeFragment;
-import com.example.mentalflow.Activity.Fragment.Home.InquiryFragment;
-import com.example.mentalflow.Activity.Fragment.Home.MyInfoFragment;
-import com.example.mentalflow.Activity.Fragment.Home.Test.TestFragment;
+import com.example.mentalflow.Activity.Fragment.MainFragment.HardwareFragment;
+import com.example.mentalflow.Activity.Fragment.MainFragment.Home.HomeFragment;
+import com.example.mentalflow.Activity.Fragment.MainFragment.InquiryFragment;
+import com.example.mentalflow.Activity.Fragment.MainFragment.MyInfoFragment;
+import com.example.mentalflow.Activity.Fragment.MainFragment.Test.TestFragment;
 import com.example.mentalflow.R;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 
 import java.util.ArrayList;
-/*HomeActivity实现Tab联动vp跳转
-*绑定5个Fragment
-*跳转至五个界面都正常
-* 问题：在HomeFragment添加跳转这一步之后出现问题，开始循环跳转至开始界面（我也不知道为什么我找了半天的Bug找不到
-* 都详细写注释了也没找到bug我好恨啊
- */
+
 public class HomeActivity extends BaseActivity {
     //导航栏名称组
     private String[] homeTitles = {"主页", "心理测试", "硬件设备", "在线问诊","我的信息"};

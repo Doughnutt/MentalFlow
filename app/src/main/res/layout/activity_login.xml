@@ -20,7 +20,7 @@
         android:id="@+id/login_et"
         android:layout_width="202dp"
         android:layout_height="38dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="397dp"
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:background="@drawable/blue_frame"
@@ -28,6 +28,8 @@
         android:textColorHint="@color/gray" />
     <Button
         android:id="@+id/login_next"
-        style="@style/Next_Button"/>
+        style="@style/Next_Button"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/login_et"/>
 
 </RelativeLayout>

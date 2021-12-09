@@ -5,13 +5,14 @@
     android:background="@color/white"
     android:orientation="vertical">
 <LinearLayout
-    android:layout_width="276dp"
-    android:layout_height="364dp"
+    android:background="@color/white"
+    android:layout_width="141dp"
+    android:layout_height="229dp"
     android:orientation="vertical">
         <ImageView
             android:id="@+id/dc_image"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="79dp"
+            android:layout_height="79dp"
             android:layout_gravity="center"
             android:layout_marginTop="29dp"
             android:background="@mipmap/doc_round_f"/>
@@ -19,7 +20,7 @@
             android:id="@+id/dc_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="28sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:text="XXX"
             android:textColor="@color/black"
@@ -27,24 +28,24 @@
             />
         <TextView
             android:id="@+id/dc_label"
-            android:layout_width="80dp"
-            android:layout_height="30dp"
+            android:layout_width="46dp"
+            android:layout_height="18dp"
             android:background="@drawable/blue_frame"
             android:textColor="@color/blue"
             android:text="情感"
-            android:textSize="20sp"
+            android:textSize="10sp"
             android:gravity="center"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"/>
         <TextView
             android:id="@+id/dc_info"
-            android:layout_width="220dp"
+            android:layout_width="119dp"
             android:layout_height="wrap_content"
             android:textColor="@color/gray"
-            android:textSize="24sp"
+            android:textSize="12sp"
             android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXX"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="15dp"/>
 </LinearLayout>
 
 </LinearLayout>

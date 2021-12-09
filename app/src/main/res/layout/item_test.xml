@@ -1,40 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_centerHorizontal="true">
+
         <LinearLayout
-            android:layout_width="350dp"
-            android:layout_height="525dp"
+            android:layout_width="276dp"
+            android:layout_height="364dp"
+            android:layout_centerHorizontal="true"
             android:background="@mipmap/test_gray_card"
             android:orientation="vertical">
+
                 <ImageView
                     android:id="@+id/item_test_iv"
-                    android:layout_width="240dp"
-                    android:layout_height="240dp"
-                    android:layout_marginTop="50dp"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="50dp"
                     android:background="@mipmap/test_1" />
+
                 <TextView
                     android:id="@+id/item_test_tv"
                     android:layout_width="240dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="25dp"
+                    android:gravity="center"
                     android:text="@string/test1_string"
                     android:textColor="@color/white"
-                    android:textSize="28sp" />
+                    android:textSize="16sp" />
+
                 <Button
                     android:id="@+id/item_test_btn"
-                    android:layout_width="180dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_width="150dp"
+                    android:layout_height="38dp"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
                     android:background="@drawable/white_oval"
                     android:text="@string/test_label"
-                    android:textSize="20sp"
                     android:textColor="@color/black"
-                    />
+                    android:textSize="16sp" />
         </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

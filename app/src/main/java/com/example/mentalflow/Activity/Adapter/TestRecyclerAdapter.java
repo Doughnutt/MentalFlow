@@ -2,6 +2,7 @@ package com.example.mentalflow.Activity.Adapter;
 
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -34,7 +35,8 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
     @Override
     public TestRecyclerAdapter.myViewHodler onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         //创建自定义布局
-        View view= View.inflate(context,R.layout.item_test,null);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_test, parent, false);
+        //View view= View.inflate(context,R.layout.item_test,null);
         return new myViewHodler(view);
     }
 

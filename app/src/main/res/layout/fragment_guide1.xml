@@ -2,30 +2,29 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".Activity.Fragment.Guide.GuideFragment1">
 
     <RelativeLayout
         android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
-        android:layout_height="760dp"
+        android:layout_height="match_parent"
         android:background="@mipmap/guide_bg1">
         <ImageView
             android:layout_width="266dp"
             android:layout_height="200dp"
-            android:layout_marginLeft="80dp"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="108dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="129dp"
             android:background="@mipmap/guide_pic1"
-            android:gravity="center"
             />
         <TextView
-            android:layout_width="260dp"
-            android:layout_height="80dp"
-            android:layout_centerInParent="true"
+            android:layout_width="192dp"
+            android:layout_height="53dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="387dp"
             android:text="@string/guide1"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="16sp"
             android:gravity="center"
             />
 

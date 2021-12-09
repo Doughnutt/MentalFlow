@@ -35,8 +35,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-//        延缓3s
-        handler.postDelayed(runnable,3000);
+//        延缓2s
+        handler.postDelayed(runnable,2000);
 //        finish();
     }
 

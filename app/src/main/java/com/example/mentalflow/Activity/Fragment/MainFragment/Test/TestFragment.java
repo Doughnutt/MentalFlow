@@ -1,4 +1,4 @@
-package com.example.mentalflow.Activity.Fragment.Home.Test;
+package com.example.mentalflow.Activity.Fragment.MainFragment.Test;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
@@ -19,7 +19,7 @@ public class TestFragment extends BaseFragment {
     private ViewPager testViewPager;
     private SlidingTabLayout slidingTabLayout;
     //标签名称组
-    private String[] mTitles = {"推荐", "能力"};
+    private String[] mTitles = {"推荐", "能力","情绪","人际","心理","学习"};
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private MyPagerAdapter mAdapter;
 
@@ -57,5 +57,5 @@ public class TestFragment extends BaseFragment {
             slidingTabLayout.setViewPager(testViewPager);
         }
 
-        }
+    }
 }

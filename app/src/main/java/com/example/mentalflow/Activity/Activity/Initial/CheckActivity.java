@@ -6,6 +6,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.example.mentalflow.Activity.Activity.BaseActivity;
+import com.example.mentalflow.Activity.Activity.HomeActivity;
 import com.example.mentalflow.R;
 
 public class CheckActivity extends BaseActivity {
@@ -40,7 +41,7 @@ public class CheckActivity extends BaseActivity {
             public void onClick(View v) {
                 String checkStr=mCheck.getText().toString().trim();
                 check(checkStr);
-//                navigateTo(.class);
+                navigateTo(HomeActivity.class);
             }
         });
     }
