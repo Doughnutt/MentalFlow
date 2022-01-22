@@ -40,12 +40,23 @@ public class CheckActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 String checkStr=mCheck.getText().toString().trim();
-                check(checkStr);
-                navigateTo(HomeActivity.class);
+                System.out.println(checkStr);
+                int result = check(checkStr);
+                if (result == 1) {
+                    navigateTo(HomeActivity.class); //跳转主页
+                } else if (result == 0) {
+                    // 账号密码不匹配
+                } else if(result == 2) {
+                    navigateTo(RegNameActivity.class); //跳转注册：姓名
+                } else if(result == 3) {
+                    // 密码格式错误
+                }
             }
         });
     }
-    //验证码发放与对比方法
-    private void check(String checkStr) {
+    // 如果手机号存在，验证密码与手机号是否匹配：匹配返回 1，不匹配返回 0
+    // 如果手机号不存在，验证密码是否符合格式：符合返回 2，不符合返回 3
+    private int check(String checkStr) {
+        return 2;
     }
 }

@@ -1,8 +1,12 @@
 package com.example.mentalflow.Activity.Activity.Initial;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mentalflow.Activity.Activity.BaseActivity;
 import com.example.mentalflow.R;
@@ -10,7 +14,6 @@ import com.example.mentalflow.R;
 public class LoginActivity extends BaseActivity {
     private EditText mPhoneNumber;
     private Button mLoginButton;
-
 
     @Override
     protected int initLayout() {
@@ -28,7 +31,8 @@ public class LoginActivity extends BaseActivity {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phone=mPhoneNumber.getText().toString().trim();
+                String phone=mPhoneNumber.getText().toString();
+//                Toast.makeText(LoginActivity.this, phone, Toast.LENGTH_SHORT).show();
                 login(phone);
                 navigateTo(CheckActivity.class);
             }
@@ -37,4 +41,4 @@ public class LoginActivity extends BaseActivity {
     //正则表达式
     private void login(String phone) {
     }
-    }
+}

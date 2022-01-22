@@ -18,15 +18,12 @@
     <string name="guide4">特增穿戴设备协同管理你的身心健康</string>
     <string name="guide5">祝你拥有自在的人生</string>
     <string name="start_str">大学生心理健康评测软件</string>
-    <string name="gt_intro">量表共10题，大概耗时1分钟.包含情绪、心理健康、人际交往、学习、能力五个维度。采用五级打分制，每个句子后面有五个答案，请根据实际情况选择1个答案。 </string>
     <string name="re_hint">输入手机号</string>
     <string name="login_register">登录/注册</string>
-    <string name="Check_str">输入验证码</string>
+    <string name="Check_str">输入密码</string>
     <string name="Next">下一步</string>
-    <string name="YourName">你的名字？</string>
-    <string name="NameHint">取个有意思的名字吧</string>
+    <string name="YourName">你的昵称？</string>
     <string name="YourSex">你的性别？</string>
-    <string name="GuideTest">为了对你的状态有初步一个了解请先完成这套自测量表</string>
     <string name="psy_info">心理学简介</string>
     <string name="label_kepu">科普</string>
     <string name="psy_detail">心理学是一门研究人类心理现象及其影响下的精神功能…</string>
@@ -34,5 +31,10 @@
     <string name="online_inquiry">Online Inquiry.</string>
     <string name="mental_test">Mental Test.</string>
     <string name="my_information">My Information.</string>
+    <string name="Test01_intro">量表共10题，大概耗时1分钟。\n包含情绪、心理健康、人际交往、学习、能力五个维度。\n采用五级打分制，每个句子后面有五个答案，\n请根据实际情况选择1个答案。</string>
+    <string name="Test01_title">为了对你的状态有初步一个了解\n请先完成这套自测量表</string>
+    <string name="Test_start">准备好了，开始吧</string>
+    <string name="NameHint">取个有意思的名字吧</string>
+    <string name="YourAge">你的年龄？</string>
 
 </resources>

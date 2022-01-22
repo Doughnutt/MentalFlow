@@ -20,7 +20,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract int initLayout();//初始化布局
     protected abstract void initView();//初始化控件
     protected abstract void initData();//初始化数据
-    public void navigateTo(Class cls) {
+    public void navigateTo(Class cls) { //定义方法执行跳转
         Intent in = new Intent(mContext, cls);
         startActivity(in);
     }

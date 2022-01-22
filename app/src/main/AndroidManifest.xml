@@ -12,6 +12,10 @@
         <activity android:name=".Activity.Activity.DoctorInfoActivity"></activity>
         <activity android:name=".Activity.Activity.HospitalActivity" />
         <activity android:name=".Activity.Activity.ArticleActivity" />
+        <activity android:name=".Activity.Activity.Initial.RegNameActivity"/>
+        <activity android:name=".Activity.Activity.Initial.RegGenderActivity"/>
+        <activity android:name=".Activity.Activity.Initial.RegAgeActivity"/>
+        <activity android:name=".Activity.Activity.Initial.Test0Activity"/>
         <activity android:name=".Activity.Activity.Initial.CheckActivity" />
         <activity android:name=".Activity.Activity.Initial.LoginActivity" />
         <activity android:name=".Activity.Activity.HomeActivity" />
