@@ -31,7 +31,7 @@ public class RegNameActivity extends BaseActivity {
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateTo(CheckActivity.class);
+                navigateTo(RegPasswordActivity.class);
             }
         });
         mNextButton.setOnClickListener(new View.OnClickListener() {

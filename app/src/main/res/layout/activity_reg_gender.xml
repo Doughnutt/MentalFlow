@@ -48,6 +48,7 @@
 
     <Button
         android:id="@+id/reg_next"
+        android:layout_marginTop="420dp"
         style="@style/Register_Button"/>
 
 </RelativeLayout>

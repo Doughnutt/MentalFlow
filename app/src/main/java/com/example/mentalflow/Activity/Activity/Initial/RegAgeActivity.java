@@ -1,5 +1,6 @@
 package com.example.mentalflow.Activity.Activity.Initial;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -7,6 +8,7 @@ import android.widget.ImageButton;
 
 import com.example.mentalflow.Activity.Activity.BaseActivity;
 import com.example.mentalflow.Activity.Activity.HomeActivity;
+import com.example.mentalflow.Activity.Activity.TestActivity;
 import com.example.mentalflow.R;
 
 public class RegAgeActivity extends BaseActivity {
@@ -41,7 +43,10 @@ public class RegAgeActivity extends BaseActivity {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateTo(Test0Activity.class); //跳转自测量表页
+                Intent intent = new Intent(RegAgeActivity.this,TestActivity.class);//跳转自测量表页
+                intent.putExtra("test_id",0); //测试编号为0
+                startActivity(intent);
+                overridePendingTransition(0,0);
             }
         });
     }

@@ -36,5 +36,10 @@
     <string name="Test_start">准备好了，开始吧</string>
     <string name="NameHint">取个有意思的名字吧</string>
     <string name="YourAge">你的年龄？</string>
+    <string name="test_start_button">准备好了，开始吧</string>
+    <string name="test_next_button">下一题</string>
+    <string name="test_back_content">不想继续测试了吗？中途退出，记录不会被保存哦</string>
+    <string name="test_back_title">确定退出测试？</string>
+    <string name="reg_psw_hint">8~16位字母或数字</string>
 
 </resources>

@@ -9,7 +9,7 @@ import com.example.mentalflow.Activity.Activity.BaseActivity;
 import com.example.mentalflow.Activity.Activity.HomeActivity;
 import com.example.mentalflow.R;
 
-public class CheckActivity extends BaseActivity {
+public class RegPasswordActivity extends BaseActivity {
 
     private EditText mCheck;
     private Button mNextButton;
@@ -18,7 +18,7 @@ public class CheckActivity extends BaseActivity {
 
     @Override
     protected int initLayout() {
-        return R.layout.activity_check;
+        return R.layout.activity_reg_password;
     }
 
     @Override

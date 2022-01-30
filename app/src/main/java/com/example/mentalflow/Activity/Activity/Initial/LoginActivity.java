@@ -1,12 +1,8 @@
 package com.example.mentalflow.Activity.Activity.Initial;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mentalflow.Activity.Activity.BaseActivity;
 import com.example.mentalflow.R;
@@ -34,7 +30,7 @@ public class LoginActivity extends BaseActivity {
                 String phone=mPhoneNumber.getText().toString();
 //                Toast.makeText(LoginActivity.this, phone, Toast.LENGTH_SHORT).show();
                 login(phone);
-                navigateTo(CheckActivity.class);
+                navigateTo(RegPasswordActivity.class);
             }
         });
     }

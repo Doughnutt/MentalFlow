@@ -23,6 +23,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void navigateTo(Class cls) { //定义方法执行跳转
         Intent in = new Intent(mContext, cls);
         startActivity(in);
+        overridePendingTransition(0,0);
+    }
+
+    public void test_navigateTo(){
+
     }
 
 }
