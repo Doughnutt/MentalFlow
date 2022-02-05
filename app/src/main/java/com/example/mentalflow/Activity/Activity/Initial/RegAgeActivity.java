@@ -1,22 +1,24 @@
 package com.example.mentalflow.Activity.Activity.Initial;
 
-import android.content.Intent;
+import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.mentalflow.Activity.Activity.BaseActivity;
-import com.example.mentalflow.Activity.Activity.HomeActivity;
-import com.example.mentalflow.Activity.Activity.TestActivity;
 import com.example.mentalflow.R;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegAgeActivity extends BaseActivity {
 
-    private ImageButton maleButton;
-    private ImageButton femaleButton;
+    private EditText mAge;
     private Button mNextButton;
     private ImageButton mBackButton;
+    private final Context context  = RegAgeActivity.this;
 
     @Override
     protected int initLayout() {
@@ -27,8 +29,7 @@ public class RegAgeActivity extends BaseActivity {
     protected void initView() {
         mBackButton=findViewById(R.id.reg_back);
         mNextButton=findViewById(R.id.reg_next);
-        maleButton=findViewById(R.id.reg_male);
-        femaleButton=findViewById(R.id.reg_female);
+        mAge=findViewById(R.id.reg_age);
     }
 
     @Override
@@ -43,11 +44,30 @@ public class RegAgeActivity extends BaseActivity {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RegAgeActivity.this,TestActivity.class);//跳转自测量表页
-                intent.putExtra("test_id",0); //测试编号为0
-                startActivity(intent);
-                overridePendingTransition(0,0);
+
+                String age = mAge.getText().toString().trim();
+                if(mAge == null || mAge.length() == 0) {
+                    Toast.makeText(context, "输入不能为空", Toast.LENGTH_SHORT).show();
+                } else if(!match(age)){
+                    Toast.makeText(context, "请输入正确的年龄", Toast.LENGTH_SHORT).show();
+                } else {
+                    // 将数据添加进数据库！
+
+                    //跳转自测量表页
+                    navigateTo(Test0PreActivity.class);
+                }
             }
         });
+    }
+
+    private boolean match(String age) {
+        String regEx = "[0-9]|[1-9][0-9]|1[0-4][0-9]"; //年龄范围在0~149
+        Pattern pattern = Pattern.compile(regEx);
+        Matcher matcher = pattern.matcher(age);
+        return matcher.matches();
+    }
+
+    private void add_data(String phone,String password,String name,String gender,int age) {
+
     }
 }

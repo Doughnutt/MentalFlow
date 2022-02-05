@@ -1,9 +1,11 @@
 package com.example.mentalflow.Activity.Activity.Initial;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.mentalflow.Activity.Activity.BaseActivity;
 import com.example.mentalflow.Activity.Activity.HomeActivity;
@@ -15,6 +17,7 @@ public class RegGenderActivity extends BaseActivity {
     private ImageButton femaleButton;
     private Button mNextButton;
     private ImageButton mBackButton;
+    private final Context context = RegGenderActivity.this;
 
     @Override
     protected int initLayout() {
@@ -72,12 +75,15 @@ public class RegGenderActivity extends BaseActivity {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateTo(RegAgeActivity.class);
-                // 如果选了男
+                if(maleButton.isActivated()) { // 如果选了男
 
-                // 如果选了女
+                    navigateTo(RegAgeActivity.class);
+                } else if(femaleButton.isActivated()) { // 如果选了女
 
-                // 如果没选
+                    navigateTo(RegAgeActivity.class);
+                } else { //如果两个都没选
+                    Toast.makeText(context, "请选择性别", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

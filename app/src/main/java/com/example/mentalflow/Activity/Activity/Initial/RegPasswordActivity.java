@@ -1,20 +1,35 @@
 package com.example.mentalflow.Activity.Activity.Initial;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.example.mentalflow.Activity.Activity.BaseActivity;
 import com.example.mentalflow.Activity.Activity.HomeActivity;
+import com.example.mentalflow.Activity.Activity.MainActivity;
+import com.example.mentalflow.Activity.DBOperator;
+import com.example.mentalflow.Activity.Entity.UserInfo;
 import com.example.mentalflow.R;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegPasswordActivity extends BaseActivity {
 
-    private EditText mCheck;
+    private EditText mPassword;
     private Button mNextButton;
     private ImageButton mBackButton;
-
+    private final Context context = RegPasswordActivity.this;
 
     @Override
     protected int initLayout() {
@@ -25,8 +40,28 @@ public class RegPasswordActivity extends BaseActivity {
     protected void initView() {
         mBackButton=findViewById(R.id.check_back);
         mNextButton=findViewById(R.id.check_next);
-        mCheck=findViewById(R.id.check_et);
+        mPassword=findViewById(R.id.check_et);
+
+        Handler mainHandler = new Handler(getMainLooper()); //获取主线程
     }
+
+    private Handler handler = new Handler(Looper.getMainLooper()) {
+        @SuppressLint("HandlerLeak")
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            //super.handleMessage(msg);
+            if(msg.what == 0) { // 登录不成功
+                Toast.makeText(context, "账号密码不匹配，请重新输入", Toast.LENGTH_SHORT).show();
+            } else if(msg.what == 1){ // 登录成功，跳转主页
+                Intent intent = new Intent(RegPasswordActivity.this, HomeActivity.class);
+                // 写入文件！
+                UserInfo userInfo = (UserInfo) msg.obj;
+                Toast.makeText(context,"你好，"+userInfo.getName(), Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+                overridePendingTransition(0,0);
+            }
+        }
+    };
 
     @Override
     protected void initData() {
@@ -39,24 +74,54 @@ public class RegPasswordActivity extends BaseActivity {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String checkStr=mCheck.getText().toString().trim();
-                System.out.println(checkStr);
-                int result = check(checkStr);
-                if (result == 1) {
-                    navigateTo(HomeActivity.class); //跳转主页
-                } else if (result == 0) {
-                    // 账号密码不匹配
-                } else if(result == 2) {
-                    navigateTo(RegNameActivity.class); //跳转注册：姓名
-                } else if(result == 3) {
-                    // 密码格式错误
+                if(mPassword == null||mPassword.length()==0) { //输入为空
+                    Toast.makeText(context, "输入不能为空", Toast.LENGTH_SHORT).show();
+                } else {
+                    String password = mPassword.getText().toString().trim();
+
+                    Intent intent = getIntent();
+                    int state = intent.getIntExtra("state",1); //获取状态：此处默认值为1，以防用户从后返回
+                    String phone = intent.getStringExtra("phone"); //获取账号
+
+                    if(state==0) { //登录状态
+                        if (!match(password)) { //匹配不正确
+                            Toast.makeText(context, "密码不正确，请重新输入", Toast.LENGTH_SHORT).show();
+                        } else { //查询数据库
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    DBOperator dbOperator = new DBOperator(); //调用数据库
+                                    Object res = dbOperator.login_search_psw(phone,password);
+                                    Message msg = Message.obtain();
+                                    if(res instanceof Boolean) { //如果结果是false，表示匹配不成功
+                                        msg.what = 0;
+                                    } else { //匹配成功
+                                        msg.what = 1;
+                                        msg.obj = res;
+                                    }
+                                    handler.sendMessage(msg);
+                                }
+                            }).start();
+                        }
+                    } else { //注册状态
+                        if (!match(password)) { //匹配不正确
+                            Toast.makeText(context, "请输入8~16位密码，必须同时包含字母与数字", Toast.LENGTH_LONG).show();
+                        } else { // 匹配成功，传递数据并跳转
+                            intent = new Intent(RegPasswordActivity.this,RegNameActivity.class);
+                            intent.putExtra("phone",phone);
+                            intent.putExtra("password",password);
+                            startActivity(intent);
+                            overridePendingTransition(0,0);
+                        }
+                    }
                 }
             }
         });
     }
-    // 如果手机号存在，验证密码与手机号是否匹配：匹配返回 1，不匹配返回 0
-    // 如果手机号不存在，验证密码是否符合格式：符合返回 2，不符合返回 3
-    private int check(String checkStr) {
-        return 2;
+    private boolean match(String password) {
+        String regEx = "[0]|(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}"; //密码由8~16位字母与数字组合而成
+        Pattern pattern = Pattern.compile(regEx);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
     }
 }

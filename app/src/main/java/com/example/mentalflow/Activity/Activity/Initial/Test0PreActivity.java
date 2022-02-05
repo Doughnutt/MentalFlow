@@ -1,6 +1,10 @@
 package com.example.mentalflow.Activity.Activity.Initial;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -10,25 +14,24 @@ import com.example.mentalflow.Activity.Activity.BaseActivity;
 import com.example.mentalflow.Activity.Fragment.TestFragment.TestPreFragment;
 import com.example.mentalflow.R;
 
-public class Test0Activity extends BaseActivity {
+public class Test0PreActivity extends BaseActivity {
 
-    private final int id = 0; //测试id
-    private final String title = ""; //测试标题
-    private final String content = ""; //测试内容
+    private Button button;
     private final String[] queList = new String[10]; //问题数组
     private final String[][] optList = new String[1][5]; //选项数组
 
     @Override
     protected int initLayout() {
-        return R.layout.activity_test;
+        return R.layout.activity_test0_pre;
+    } //初量表准备页面
+
+    @Override
+    protected void initView() {
+        button = findViewById(R.id.test0_start);
     }
 
     @Override
-    protected void initView() { }
-
-    @Override
     protected void initData() {
-        // 从上一个活动中获取测试编号
 
         // 测试中的问题
         queList[0] = "近一周内我感觉情绪波动较大。";
@@ -49,18 +52,21 @@ public class Test0Activity extends BaseActivity {
         optList[0][3] = "稍不同意";
         optList[0][4] = "极不同意";
 
-        TestPreFragment testPreFragment = new TestPreFragment();
-        Bundle b =new Bundle();
-        b.putSerializable("que_list",queList);
-        b.putSerializable("opt_list",optList);
-        testPreFragment.setArguments(b);
-        setFragment(testPreFragment); //传入一个新的页面
-    }
 
-    private void setFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.test_layout, fragment); //为layout传入fragment
-        transaction.commitNow();
+        // 添加开始按钮点击事件
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Test0PreActivity.this, Test0ProActivity.class);
+                Bundle b =new Bundle();
+                b.putInt("que_id",0); //传入跳转哪一个问题
+                b.putSerializable("que_list",queList);
+                b.putSerializable("opt_list",optList);
+                intent.putExtras(b);
+                startActivity(intent); //跳转初量表过程页
+                overridePendingTransition(0,0);
+            }
+        });
+
     }
 }

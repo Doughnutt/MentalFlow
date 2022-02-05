@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mentalflow">
+
+    <!--添加数据库执行权限-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +25,8 @@
         <activity android:name=".Activity.Activity.Initial.RegNameActivity"/>
         <activity android:name=".Activity.Activity.Initial.RegGenderActivity"/>
         <activity android:name=".Activity.Activity.Initial.RegAgeActivity"/>
-        <activity android:name=".Activity.Activity.Initial.Test0Activity"/>
+        <activity android:name=".Activity.Activity.Initial.Test0PreActivity"/>
+        <activity android:name=".Activity.Activity.Initial.Test0ProActivity"/>
         <activity android:name=".Activity.Activity.TestActivity"/>
         <activity android:name=".Activity.Activity.Initial.RegPasswordActivity" />
         <activity android:name=".Activity.Activity.Initial.LoginActivity" />

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
+    android:background="@mipmap/test0_bg2"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <!--过程页面-->
+    <!--初量表过程页面-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,8 +12,8 @@
         tools:ignore="MissingConstraints">
 
         <TextView
-            android:id="@+id/question_content"
-            android:layout_marginTop="120dp"
+            android:id="@+id/test0_question_content"
+            android:layout_marginTop="110dp"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:textSize="18sp"
@@ -24,7 +24,7 @@
             tools:ignore="MissingConstraints" />
 
         <LinearLayout
-            android:id="@+id/opt_container"
+            android:id="@+id/test0_opt_container"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -33,21 +33,21 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/test_change_button"
+            android:id="@+id/test0_change_button"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:layout_below="@+id/opt_container"
-            android:layout_marginTop="56dp">
+            android:layout_below="@+id/test0_opt_container"
+            android:layout_marginTop="45dp">
         </LinearLayout>
 
         <ProgressBar
             android:layout_gravity="center_horizontal"
-            android:id="@+id/progress_bar"
-            android:layout_below="@+id/test_change_button"
-            android:layout_marginTop="40dp"
+            android:id="@+id/test0_progress_bar"
+            android:layout_below="@+id/test0_change_button"
+            android:layout_marginTop="30dp"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="250dp"
             android:layout_height="wrap_content"

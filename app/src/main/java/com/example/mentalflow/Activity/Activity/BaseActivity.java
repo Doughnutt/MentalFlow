@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import com.example.mentalflow.R;
 
 public abstract class BaseActivity extends AppCompatActivity {
     public Context mContext;
@@ -23,11 +24,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void navigateTo(Class cls) { //定义方法执行跳转
         Intent in = new Intent(mContext, cls);
         startActivity(in);
-        overridePendingTransition(0,0);
-    }
-
-    public void test_navigateTo(){
-
+        overridePendingTransition(R.anim.empty,R.anim.empty);
     }
 
 }

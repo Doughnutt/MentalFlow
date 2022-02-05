@@ -2,20 +2,20 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@mipmap/test0_bg1"
     xmlns:tools="http://schemas.android.com/tools">
-    <!--结果页面-->
+    <!--初量表准备页面-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
-            android:id="@+id/test_pre_title"
             android:layout_width="286dp"
             android:layout_height="90dp"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="66dp"
+            android:text="@string/Test0_title"
             android:fontFamily="sans-serif-black"
             android:gravity="left"
             android:lineSpacingExtra="2dp"
@@ -24,20 +24,20 @@
             tools:ignore="RtlHardcoded" />
 
         <TextView
-            android:id="@+id/test_pre_content"
             android:layout_width="293dp"
             android:layout_height="214dp"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="169dp"
             android:lineSpacingExtra="6dp"
+            android:text="@string/Test0_intro"
             android:gravity="left"
             android:textColor="@color/black"
             android:textSize="14sp"
             tools:ignore="RtlHardcoded" />
 
         <Button
-            android:id="@+id/test_start"
+            android:id="@+id/test0_start"
             android:layout_width="166dp"
             android:layout_height="38dp"
             android:layout_centerHorizontal="true"

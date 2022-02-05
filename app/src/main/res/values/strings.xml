@@ -31,8 +31,8 @@
     <string name="online_inquiry">Online Inquiry.</string>
     <string name="mental_test">Mental Test.</string>
     <string name="my_information">My Information.</string>
-    <string name="Test01_intro">量表共10题，大概耗时1分钟。\n包含情绪、心理健康、人际交往、学习、能力五个维度。\n采用五级打分制，每个句子后面有五个答案，\n请根据实际情况选择1个答案。</string>
-    <string name="Test01_title">为了对你的状态有初步一个了解\n请先完成这套自测量表</string>
+    <string name="Test0_intro">量表共10题，大概耗时1分钟。\n包含情绪、心理健康、人际交往、学习、能力五个维度。\n采用五级打分制，每个句子后面有五个答案，\n请根据实际情况选择1个答案。</string>
+    <string name="Test0_title">为了对你的状态有初步一个了解\n请先完成这套自测量表</string>
     <string name="Test_start">准备好了，开始吧</string>
     <string name="NameHint">取个有意思的名字吧</string>
     <string name="YourAge">你的年龄？</string>
@@ -40,6 +40,6 @@
     <string name="test_next_button">下一题</string>
     <string name="test_back_content">不想继续测试了吗？中途退出，记录不会被保存哦</string>
     <string name="test_back_title">确定退出测试？</string>
-    <string name="reg_psw_hint">8~16位字母或数字</string>
+    <string name="reg_psw_hint">8~16位字母与数字组合</string>
 
 </resources>
