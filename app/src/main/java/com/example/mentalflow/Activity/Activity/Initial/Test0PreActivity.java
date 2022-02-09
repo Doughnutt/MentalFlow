@@ -3,8 +3,10 @@ package com.example.mentalflow.Activity.Activity.Initial;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -13,6 +15,9 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.mentalflow.Activity.Activity.BaseActivity;
 import com.example.mentalflow.Activity.Fragment.TestFragment.TestPreFragment;
 import com.example.mentalflow.R;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Test0PreActivity extends BaseActivity {
 
@@ -62,11 +67,20 @@ public class Test0PreActivity extends BaseActivity {
                 b.putInt("que_id",0); //传入跳转哪一个问题
                 b.putSerializable("que_list",queList);
                 b.putSerializable("opt_list",optList);
+                int[] selected_opt = new int[10];
+                Arrays.fill(selected_opt, -1); //初始化数组：将未选的选项标记为-1
+                b.putSerializable("selected_opt",selected_opt);
                 intent.putExtras(b);
                 startActivity(intent); //跳转初量表过程页
                 overridePendingTransition(0,0);
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        // 重载返回键监听事件，使进入自测量表后无法返回
+        Toast.makeText(mContext,"此处无法返回，如需修改个人信息，请在完成注册后进入主页修改",Toast.LENGTH_LONG).show();
     }
 }

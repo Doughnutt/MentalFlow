@@ -3,6 +3,7 @@ package com.example.mentalflow.Activity.Activity.Initial;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -19,6 +20,7 @@ import com.example.mentalflow.Activity.Activity.HomeActivity;
 import com.example.mentalflow.Activity.Activity.MainActivity;
 import com.example.mentalflow.Activity.DBOperator;
 import com.example.mentalflow.Activity.Entity.UserInfo;
+import com.example.mentalflow.Activity.FileOperator;
 import com.example.mentalflow.R;
 
 import java.util.regex.Matcher;
@@ -54,8 +56,17 @@ public class RegPasswordActivity extends BaseActivity {
                 Toast.makeText(context, "账号密码不匹配，请重新输入", Toast.LENGTH_SHORT).show();
             } else if(msg.what == 1){ // 登录成功，跳转主页
                 Intent intent = new Intent(RegPasswordActivity.this, HomeActivity.class);
-                // 写入文件！
                 UserInfo userInfo = (UserInfo) msg.obj;
+                // 写入文件:UserInfo
+                SharedPreferences.Editor editor = getSharedPreferences("UserInfo",MODE_PRIVATE).edit();
+                editor.putInt("id",userInfo.getId());
+                editor.putString("phone",userInfo.getPhone());
+//                editor.putString("password",userInfo.getPassword());
+                editor.putString("name",userInfo.getName());
+                editor.putString("gender", userInfo.getGender());
+                editor.putInt("age", userInfo.getAge());
+                editor.putString("intro",userInfo.getIntro());
+                editor.apply();
                 Toast.makeText(context,"你好，"+userInfo.getName(), Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 overridePendingTransition(0,0);

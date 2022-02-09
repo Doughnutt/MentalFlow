@@ -15,9 +15,7 @@ public class DBOperator {
     // 查询账号(手机号）是否存在
     public boolean login_search_phone(String phone) {
         String sql = "select * from user where phone = ?";
-        System.out.println(phone);
-        try (
-            Connection conn = DBOpenHelper.getConn();
+        try (Connection conn = DBOpenHelper.getConn();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
                 stmt.setString(1,phone);
@@ -36,10 +34,8 @@ public class DBOperator {
     // 查询账号密码是否匹配：如果匹配，返回用户类，否则返回false
     public Object login_search_psw(String phone, String password) {
         String sql = "select * from user where phone = ? and password = ?";
-        System.out.println(phone);
-        try (
-                Connection conn = DBOpenHelper.getConn();
-                PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (Connection conn = DBOpenHelper.getConn();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1,phone);
             stmt.setString(2,password);
@@ -60,6 +56,49 @@ public class DBOperator {
             e.printStackTrace();
         }
         return false; //账号密码不匹配
+    }
+
+    // 插入新注册的用户数据
+    public int insert_userInfo(UserInfo userInfo) {
+
+        String sql = "insert into user(id,phone,password,name,gender,age) values (?,?,?,?,?,?)";
+        int new_id = 0;
+        try (Connection conn = DBOpenHelper.getConn();
+             PreparedStatement stmt = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS)) {
+
+            stmt.setInt(1,userInfo.getId());
+            stmt.setString(2, userInfo.getPhone());
+            stmt.setString(3, userInfo.getPassword());
+            stmt.setString(4,userInfo.getName());
+            stmt.setString(5,userInfo.getGender());
+            stmt.setInt(6,userInfo.getAge());
+            stmt.executeUpdate();
+            //获取自增产生的用户id
+            ResultSet rs = stmt.getGeneratedKeys();
+            if(rs.next()) {
+                new_id = rs.getInt(1); //必须放在里面
+            }
+            System.out.println("新产生的id为"+new_id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return new_id;
+    }
+
+    // 插入新注册用户的初量表结果
+    public void insert_test0_result(int id,int[] res) {
+        String sql = "insert into pretest values (?,?,?,?,?,?)";
+        try (Connection conn = DBOpenHelper.getConn();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1,id);
+            for(int i=0;i<5;i++) {
+                stmt.setInt(i+2,res[i]);
+            }
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     // 查询测试列表

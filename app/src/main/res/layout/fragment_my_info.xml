@@ -11,31 +11,37 @@
     <ImageView
         style="@style/DottedLine"
         />
+
     <RelativeLayout
-        android:layout_width="336dp"
+        android:layout_width="320dp"
         android:layout_height="168dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="125dp"
         android:background="@color/light_gray">
-        <ImageView
-            android:id="@+id/myinfo_iv"
-            android:layout_width="92dp"
-            android:layout_height="92dp"
-            android:background="@mipmap/myinfo_image"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="150dp"/>
+
         <TextView
-            android:id="@+id/myinfo_tv"
+            android:id="@+id/my_info_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/my_info"
-            android:textColor="@color/black"
-            android:textStyle="bold"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"/>
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp"
+            android:text="@string/my_name"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/my_info_photo"
+            android:layout_width="92dp"
+            android:layout_height="92dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="190dp"
+            android:layout_marginLeft="190dp"
+            android:background="@mipmap/my_info_male" />
     </RelativeLayout>
     <RelativeLayout
-        android:layout_width="336dp"
+        android:layout_width="320dp"
         android:layout_height="216dp"
         android:layout_marginTop="360dp"
         android:layout_centerHorizontal="true"

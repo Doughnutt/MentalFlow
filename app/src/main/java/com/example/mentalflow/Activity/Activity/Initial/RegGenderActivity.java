@@ -1,6 +1,7 @@
 package com.example.mentalflow.Activity.Activity.Initial;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,7 +39,6 @@ public class RegGenderActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
         // 如果男被选中
         maleButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +65,11 @@ public class RegGenderActivity extends BaseActivity {
             }
         });
 
+        Intent intent = getIntent();
+        String phone = intent.getStringExtra("phone");
+        String password = intent.getStringExtra("password");
+        String name = intent.getStringExtra("name");
+
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,12 +80,18 @@ public class RegGenderActivity extends BaseActivity {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(RegGenderActivity.this, RegAgeActivity.class);
+                intent.putExtra("phone", phone);
+                intent.putExtra("password", password);
+                intent.putExtra("name", name);
                 if(maleButton.isActivated()) { // 如果选了男
-
-                    navigateTo(RegAgeActivity.class);
+                    intent.putExtra("gender","男");
+                    startActivity(intent);
+                    overridePendingTransition(0, 0);
                 } else if(femaleButton.isActivated()) { // 如果选了女
-
-                    navigateTo(RegAgeActivity.class);
+                    intent.putExtra("gender","女");
+                    startActivity(intent);
+                    overridePendingTransition(0, 0);
                 } else { //如果两个都没选
                     Toast.makeText(context, "请选择性别", Toast.LENGTH_SHORT).show();
                 }

@@ -1,13 +1,25 @@
 package com.example.mentalflow.Activity.Activity.Initial;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
 import com.example.mentalflow.Activity.Activity.BaseActivity;
+import com.example.mentalflow.Activity.Activity.HomeActivity;
+import com.example.mentalflow.Activity.DBOpenHelper;
+import com.example.mentalflow.Activity.DBOperator;
+import com.example.mentalflow.Activity.Entity.UserInfo;
 import com.example.mentalflow.R;
 
 import java.util.regex.Matcher;
@@ -32,6 +44,31 @@ public class RegAgeActivity extends BaseActivity {
         mAge=findViewById(R.id.reg_age);
     }
 
+    private Handler handler = new Handler(Looper.getMainLooper()) {
+        @SuppressLint("HandlerLeak")
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            //super.handleMessage(msg);
+            if(msg.what == 0){ // 注册成功
+
+                // 写入文件:UserInfo
+                UserInfo userInfo = (UserInfo) msg.obj;
+                SharedPreferences.Editor editor = getSharedPreferences("UserInfo",MODE_PRIVATE).edit();
+                editor.putInt("id",userInfo.getId());
+                editor.putString("phone",userInfo.getPhone());
+//                editor.putString("password",userInfo.getPassword());
+                editor.putString("name",userInfo.getName());
+                editor.putString("gender", userInfo.getGender());
+                editor.putInt("age", userInfo.getAge());
+                editor.putString("intro",userInfo.getIntro());
+                editor.apply();
+
+                //跳转自测量表页
+                navigateTo(Test0PreActivity.class);
+            }
+        }
+    };
+
     @Override
     protected void initData() {
         mBackButton.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +77,12 @@ public class RegAgeActivity extends BaseActivity {
                 navigateTo(RegGenderActivity.class);
             }
         });
+
+        Intent intent = getIntent();
+        String phone = intent.getStringExtra("phone");
+        String password = intent.getStringExtra("password");
+        String name = intent.getStringExtra("name");
+        String gender = intent.getStringExtra("gender");
 
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,10 +94,26 @@ public class RegAgeActivity extends BaseActivity {
                 } else if(!match(age)){
                     Toast.makeText(context, "请输入正确的年龄", Toast.LENGTH_SHORT).show();
                 } else {
-                    // 将数据添加进数据库！
-
-                    //跳转自测量表页
-                    navigateTo(Test0PreActivity.class);
+                    // 将注册信息添加进数据库
+                    UserInfo userInfo = new UserInfo();
+                    userInfo.setPhone(phone);
+                    userInfo.setPassword(password);
+                    userInfo.setName(name);
+                    userInfo.setGender(gender);
+                    userInfo.setAge(Integer.parseInt(age));
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            DBOperator dbOperator = new DBOperator(); //调用数据库
+                            int new_id = dbOperator.insert_userInfo(userInfo);
+                            // 获取数据库自增生成的用户id
+                            userInfo.setId(new_id);
+                            Message msg = Message.obtain();
+                            msg.what = 0;
+                            msg.obj = userInfo;
+                            handler.sendMessage(msg);
+                        }
+                    }).start();
                 }
             }
         });
@@ -65,9 +124,5 @@ public class RegAgeActivity extends BaseActivity {
         Pattern pattern = Pattern.compile(regEx);
         Matcher matcher = pattern.matcher(age);
         return matcher.matches();
-    }
-
-    private void add_data(String phone,String password,String name,String gender,int age) {
-
     }
 }

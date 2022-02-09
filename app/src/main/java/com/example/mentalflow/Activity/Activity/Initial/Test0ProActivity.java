@@ -1,16 +1,20 @@
 package com.example.mentalflow.Activity.Activity.Initial;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Message;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.FragmentManager;
@@ -19,9 +23,12 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.mentalflow.Activity.Activity.BaseActivity;
 import com.example.mentalflow.Activity.Activity.HomeActivity;
 import com.example.mentalflow.Activity.Activity.MainActivity;
+import com.example.mentalflow.Activity.DBOperator;
 import com.example.mentalflow.Activity.Fragment.TestFragment.TestProFragment;
 import com.example.mentalflow.Activity.Fragment.TestFragment.TestResFragment;
 import com.example.mentalflow.R;
+
+import java.util.ArrayList;
 
 public class Test0ProActivity extends BaseActivity {
 
@@ -123,7 +130,6 @@ public class Test0ProActivity extends BaseActivity {
         button_last.setOnClickListener(new View.OnClickListener() { //上一题跳转
             @Override
             public void onClick(View v) {
-                // 记录这一页的选项
 
                 // 跳转该页
                 b.putSerializable("que_list",queList);
@@ -137,6 +143,7 @@ public class Test0ProActivity extends BaseActivity {
                 overridePendingTransition(R.anim.empty,R.anim.empty);
             }
         });
+
         //下一题
         Button button_next = new Button(mContext);
         button_next.setStateListAnimator(null);
@@ -150,8 +157,23 @@ public class Test0ProActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                if(que_id[0] != queList.length-1) { //如果不是最后一页
+                int selected_id = -1; //记录被选择的选项id
+                for(int i=0;i<options.length;i++) {
+                    if(options[i].isActivated()) {
+                        selected_id = i;
+                        break;
+                    }
+                }
+
+                if(selected_id == -1) { //如果没有选项被选
+                    Toast.makeText(mContext,"请选择一个选项",Toast.LENGTH_SHORT).show();
+
+                } else if(que_id[0] != queList.length-1) { //如果不是最后一页
                     // 记录这一页的选项
+                    Intent intent = new Intent(Test0ProActivity.this,Test0ProActivity.class);
+                    int[] selected_opt = (int[]) b.getSerializable("selected_opt"); //获取之前的选择
+                    selected_opt[que_id[0]] = selected_id; //更新选项
+                    b.putSerializable("selected_opt",selected_opt);
 
                     // 跳转该页
                     b.putSerializable("que_list",queList);
@@ -159,17 +181,18 @@ public class Test0ProActivity extends BaseActivity {
                     b.remove("que_id");
                     que_id[0] = que_id[0] + 1;
                     b.putInt("que_id", que_id[0]); //传入问题编号
-                    Intent intent = new Intent(Test0ProActivity.this,Test0ProActivity.class);
+
                     intent.putExtras(b);
                     startActivity(intent);
                     overridePendingTransition(R.anim.empty,R.anim.empty);
-                } else {
-                    // 计算结果
-                    String test_result = null;
+                } else { //如果是最后一页
+                    // 读取选项，处理结果
+                    int[] selected_opt = (int[]) b.getSerializable("selected_opt");
+                    selected_opt[que_id[0]] = selected_id; //更新选项
+                    cal(selected_opt);
+
                     // 跳转主页
-                    Intent intent = new Intent(Test0ProActivity.this, HomeActivity.class);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.empty,R.anim.empty);
+                    navigateTo(HomeActivity.class);
                 }
             }
         });
@@ -214,5 +237,29 @@ public class Test0ProActivity extends BaseActivity {
             linearLayout1.addView(textView3);
             linearLayout1.addView(button_next);
         }
+    }
+
+    private void cal(int[] opt) { //计算结果，存储数据库
+
+        // 计算结果
+        int[] res = new int[5];
+        res[0] += 10-opt[0]-opt[5];
+        res[1] += 10-opt[1]-opt[6];
+        res[2] += 10-opt[2]-opt[7];
+        res[3] += 10-opt[4]-opt[8];
+        res[4] += 10-opt[3]-opt[9];
+
+        // 从文件UserInfo中读取用户id
+        SharedPreferences pref = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        int id = pref.getInt("id",0);
+
+        // 存储数据
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                DBOperator dbOperator = new DBOperator(); //调用数据库
+                dbOperator.insert_test0_result(id,res);
+            }
+        }).start();
     }
 }
