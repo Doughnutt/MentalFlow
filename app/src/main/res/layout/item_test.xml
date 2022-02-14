@@ -2,44 +2,45 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/bg_gray"
     android:layout_centerHorizontal="true">
 
-        <LinearLayout
-            android:layout_width="276dp"
-            android:layout_height="364dp"
-            android:layout_centerHorizontal="true"
-            android:background="@mipmap/test_gray_card"
-            android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:layout_width="275dp"-->
+<!--            android:layout_height="95dp"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:background="@mipmap/test1_bg2"-->
+<!--            android:orientation="horizontal">-->
 
-                <ImageView
-                    android:id="@+id/item_test_iv"
-                    android:layout_width="160dp"
-                    android:layout_height="160dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="50dp"
-                    android:background="@mipmap/test_1" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/item_test_iv"-->
+<!--                    android:layout_width="60dp"-->
+<!--                    android:layout_height="60dp"-->
+<!--                    android:layout_marginLeft="20dp"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:background="@mipmap/test_1" />-->
 
-                <TextView
-                    android:id="@+id/item_test_tv"
-                    android:layout_width="240dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="25dp"
-                    android:gravity="center"
-                    android:text="@string/test1_string"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/item_test_tv"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:layout_marginLeft="50dp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="测试"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="16sp" />-->
 
-                <Button
-                    android:id="@+id/item_test_btn"
-                    android:layout_width="150dp"
-                    android:layout_height="38dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="30dp"
-                    android:background="@drawable/white_oval"
-                    android:text="@string/test_label"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="vertical">
+            <ImageView
+                android:id="@+id/item_test_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" />
+    </LinearLayout>
 </RelativeLayout>

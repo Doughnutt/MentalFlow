@@ -22,7 +22,7 @@
         tl:tl_textUnselectColor="@color/dark_gray"
         tl:tl_textsize="12sp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:background="@color/white"
         android:layout_alignParentBottom="true"/>
 

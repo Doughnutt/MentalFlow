@@ -16,8 +16,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.mentalflow.Activity.Activity.BaseActivity;
-import com.example.mentalflow.Activity.Activity.HomeActivity;
-import com.example.mentalflow.Activity.DBOpenHelper;
 import com.example.mentalflow.Activity.DBOperator;
 import com.example.mentalflow.Activity.Entity.UserInfo;
 import com.example.mentalflow.R;
@@ -105,7 +103,7 @@ public class RegAgeActivity extends BaseActivity {
                         @Override
                         public void run() {
                             DBOperator dbOperator = new DBOperator(); //调用数据库
-                            int new_id = dbOperator.insert_userInfo(userInfo);
+                            int new_id = dbOperator.reg_insert_userInfo(userInfo);
                             // 获取数据库自增生成的用户id
                             userInfo.setId(new_id);
                             Message msg = Message.obtain();

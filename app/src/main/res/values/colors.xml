@@ -8,9 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bg_gray">#F9F9F9</color>
+    <color name="top_gray">#F8F8F8</color> <!--顶端标题栏的背景色-->
     <color name="gray">#999999</color>
     <color name="blue">#5481BD</color>
     <color name="dark_gray">#9C101010</color>
     <color name="pink">#9CDC797E</color>
+    <color name="dark_pink">#DC797E</color>
     <color name="light_gray">#90ECECEC</color>
 </resources>

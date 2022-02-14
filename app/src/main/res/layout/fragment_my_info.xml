@@ -8,16 +8,15 @@
     <TextView
         style="@style/Text_Title"
         android:text="@string/my_information" />
-    <ImageView
-        style="@style/DottedLine"
-        />
+
+    <ImageView style="@style/DottedLine" />
 
     <RelativeLayout
-        android:layout_width="320dp"
+        android:layout_width="310dp"
         android:layout_height="168dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="125dp"
-        android:background="@color/light_gray">
+        android:background="@drawable/myinfo_gray_shape">
 
         <TextView
             android:id="@+id/my_info_name"
@@ -41,11 +40,11 @@
             android:background="@mipmap/my_info_male" />
     </RelativeLayout>
     <RelativeLayout
-        android:layout_width="320dp"
+        android:layout_width="310dp"
         android:layout_height="216dp"
         android:layout_marginTop="360dp"
         android:layout_centerHorizontal="true"
-        android:background="@color/white">
+        android:background="@drawable/myinfo_white_shape">
         <Button
             android:id="@+id/myinfo_btn1"
             style="@style/MyInfo_Button"

@@ -10,26 +10,18 @@ import com.flyco.tablayout.SlidingTabLayout;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TestFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class TestFragment extends BaseFragment {
     private ViewPager testViewPager;
-    private SlidingTabLayout slidingTabLayout;
+    private SlidingTabLayout slidingTabLayout; //滑动布局
     //标签名称组
     private String[] mTitles = {"推荐", "能力","情绪","人际","心理","学习"};
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private MyPagerAdapter mAdapter;
+    private int now_category = 0;
 
-    public TestFragment() {
-        // Required empty public constructor
-    }
-
-
-    public static TestFragment newInstance() {
+    public static TestFragment newInstance(int now) { //要传入当前需要展示的分类
         TestFragment fragment = new TestFragment();
+        fragment.now_category = now;
         return fragment;
     }
 
@@ -40,8 +32,8 @@ public class TestFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-       testViewPager=mRootView.findViewById(R.id.test_vp);
-        slidingTabLayout=mRootView.findViewById(R.id.test_tl);
+        testViewPager = mRootView.findViewById(R.id.test_vp);
+        slidingTabLayout = mRootView.findViewById(R.id.test_tl);
     }
 
     @Override
@@ -51,10 +43,11 @@ public class TestFragment extends BaseFragment {
 
     private void getTestCategoryList() {
         for(String title:mTitles){
-            mFragments.add(TestAbilityFragment.newInstance(title));
-            mAdapter=new MyPagerAdapter(getFragmentManager(),mTitles,mFragments);
+            mFragments.add(TestAbilityFragment.newInstance(title)); //对于每一个类别建立一个新的 fragment
+            mAdapter = new MyPagerAdapter(getFragmentManager(),mTitles,mFragments);
             testViewPager.setAdapter(mAdapter);
             slidingTabLayout.setViewPager(testViewPager);
+            slidingTabLayout.setCurrentTab(this.now_category); //设置当前处于哪一个分类
         }
 
     }

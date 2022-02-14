@@ -1,5 +1,7 @@
 package com.example.mentalflow.Activity.Activity;
 
+import android.content.Intent;
+
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -49,20 +51,37 @@ public class HomeActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        Intent intent = getIntent();
+
         homeFragments.add(HomeFragment.newInstance());
-        homeFragments.add(TestFragment.newInstance());
+        int test_category = intent.getIntExtra("test_category",0); //获取上个活动传入的类别值
+        homeFragments.add(TestFragment.newInstance(test_category));
         homeFragments.add(HardwareFragment.newInstance());
         homeFragments.add(InquiryFragment.newInstance());
         homeFragments.add(MyInfoFragment.newInstance());
 
         for (int i = 0; i < homeTitles.length; i++) {
             homeTabEntities.add(new TabEntity(homeTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
+            //标题，选中的icon，未选中的icon
         }
+
+        // 通过传值记录跳转回哪个页面，下面的执行顺序不能换
+        int select_page = intent.getIntExtra("select_page",0);
+
+        homeActivityViewPager.setOffscreenPageLimit(homeFragments.size());
+
         homeActivityCommonTabLayout.setTabData(homeTabEntities);
+
+        homeActivityViewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager(),homeTitles,homeFragments));
+
+        homeActivityCommonTabLayout.setCurrentTab(select_page); //设置导航栏
+        homeActivityViewPager.setCurrentItem(select_page); //设置fragment
+
         homeActivityCommonTabLayout.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelect(int position)
             {
+                System.out.println(position);
                 homeActivityViewPager.setCurrentItem(position);
             }
 
@@ -71,7 +90,6 @@ public class HomeActivity extends BaseActivity {
             }
         });
 
-        homeActivityViewPager.setOffscreenPageLimit(homeFragments.size());
         homeActivityViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -80,6 +98,7 @@ public class HomeActivity extends BaseActivity {
 
             @Override
             public void onPageSelected(int position) {
+                System.out.println(position);
                 homeActivityCommonTabLayout.setCurrentTab(position);
             }
 
@@ -89,6 +108,6 @@ public class HomeActivity extends BaseActivity {
             }
         });
 
-        homeActivityViewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager(),homeTitles,homeFragments));
+
     }
 }

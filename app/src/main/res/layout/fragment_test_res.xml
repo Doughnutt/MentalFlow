@@ -9,9 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
-            android:id="@+id/test_pre_title"
+            android:id="@+id/test_res_title"
             android:layout_width="286dp"
-            android:layout_height="90dp"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
@@ -19,25 +19,28 @@
             android:fontFamily="sans-serif-black"
             android:gravity="left"
             android:lineSpacingExtra="2dp"
-            android:textColor="@color/black"
+            android:text="@string/test_res_title"
+            android:textColor="@color/white"
             android:textSize="20sp"
+            android:textStyle="bold"
             tools:ignore="RtlHardcoded" />
 
         <TextView
-            android:id="@+id/test_pre_content"
+            android:id="@+id/test_res_content"
             android:layout_width="293dp"
-            android:layout_height="214dp"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="32dp"
-            android:layout_marginTop="169dp"
-            android:lineSpacingExtra="6dp"
+            android:layout_below="@id/test_res_title"
+            android:layout_marginTop="30dp"
             android:gravity="left"
-            android:textColor="@color/black"
+            android:lineSpacingExtra="6dp"
+            android:textColor="@color/white"
             android:textSize="14sp"
             tools:ignore="RtlHardcoded" />
 
         <Button
-            android:id="@+id/test_start"
+            android:id="@+id/test_end"
             android:layout_width="166dp"
             android:layout_height="38dp"
             android:layout_centerHorizontal="true"
@@ -46,7 +49,7 @@
             android:layout_marginTop="513dp"
             android:background="@drawable/white_button"
             android:gravity="center"
-            android:text="@string/test_start_button"
+            android:text="@string/test_end"
             android:textColor="@color/black"
             android:textSize="12sp" />
     </RelativeLayout>

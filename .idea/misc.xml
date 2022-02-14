@@ -5,22 +5,26 @@
       <map>
         <entry key="..\:/MentalFlow/app/src/main/res/layout/activity_article.xml" value="0.1" />
         <entry key="..\:/MentalFlow/app/src/main/res/layout/activity_check.xml" value="0.1" />
+        <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable-v24/myinfo_white_shape.xml" value="0.133" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/black_button.xml" value="0.33425925925925926" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/blue_frame.xml" value="0.19322916666666667" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/gender_female.xml" value="0.33425925925925926" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/gender_male.xml" value="0.33425925925925926" />
+        <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/myinfo_gray_shape.xml" value="0.133" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/test_option__button.xml" value="0.18385416666666668" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/test_option_button.xml" value="0.18703703703703703" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/test_option_button_act.xml" value="0.18703703703703703" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/test_option_button_dea.xml" value="0.18703703703703703" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/test_process.xml" value="0.19322916666666667" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/transparent_shape.xml" value="0.18703703703703703" />
+        <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/transparent_shape1.xml" value="0.133" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/transparent_shape2.xml" value="0.18385416666666668" />
+        <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/transparent_shape3.xml" value="0.133" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/white_button.xml" value="0.33425925925925926" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/white_dialog.xml" value="0.18102564102564103" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/white_oval.xml" value="0.13148148148148148" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/drawable/white_stroke_button.xml" value="0.18703703703703703" />
-        <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/layout/activity_article.xml" value="0.125" />
+        <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/layout/activity_article.xml" value="0.1" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/layout/activity_check.xml" value="0.125" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/layout/activity_doctor_info.xml" value="0.10511651469098278" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/layout/activity_guide.xml" value="0.10511651469098278" />
@@ -28,6 +32,8 @@
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/layout/activity_hospital.xml" value="0.18885869565217392" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/layout/activity_login.xml" value="0.18885869565217392" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/layout/activity_main.xml" value="0.18885869565217392" />
+        <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/layout/activity_mod_myinfo.xml" value="0.23052536231884058" />
+        <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/layout/activity_myinfo_setting.xml" value="0.23052536231884058" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/layout/activity_reg_age.xml" value="0.165" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/layout/activity_reg_gender.xml" value="0.18885869565217392" />
         <entry key="..\:/项目Mental Flow/MentalFlow/MentalFlow/app/src/main/res/layout/activity_reg_name.xml" value="0.125" />

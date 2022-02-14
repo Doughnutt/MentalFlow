@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
     <!--过程页面-->
     <RelativeLayout
+        android:id="@+id/test_relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -13,14 +14,14 @@
 
         <TextView
             android:id="@+id/question_content"
-            android:layout_marginTop="120dp"
             android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:textSize="18sp"
-            android:singleLine="false"
-            android:gravity="center"
-            android:textColor="@color/black"
+            android:layout_height="80dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            android:gravity="center"
+            android:singleLine="false"
+            android:textColor="@color/black"
+            android:textSize="18sp"
             tools:ignore="MissingConstraints" />
 
         <LinearLayout
@@ -28,7 +29,9 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_centerInParent="true"
+            android:layout_below="@+id/question_content"
+            android:layout_marginTop="0dp"
+            android:layout_centerHorizontal="true"
             android:gravity="center">
         </LinearLayout>
 
@@ -40,12 +43,12 @@
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:layout_below="@+id/opt_container"
-            android:layout_marginTop="56dp">
+            android:layout_marginTop="30dp">
         </LinearLayout>
 
         <ProgressBar
-            android:layout_gravity="center_horizontal"
             android:id="@+id/progress_bar"
+            android:layout_gravity="center_horizontal"
             android:layout_below="@+id/test_change_button"
             android:layout_marginTop="40dp"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
@@ -54,6 +57,21 @@
             android:layout_centerHorizontal="true"
             android:progressDrawable="@drawable/test_process"
             android:indeterminateOnly="false"
+            android:max="100"
+            android:maxHeight="14dp"
+            android:minHeight="12dp"
+            android:progress="100" />
+
+        <ProgressBar
+            android:id="@+id/progress1_bar"
+            android:layout_gravity="center_horizontal"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_centerHorizontal="true"
+            android:progressDrawable="@drawable/test_process"
+            android:indeterminateOnly="false"
+            android:layout_alignParentBottom="true"
             android:max="100"
             android:maxHeight="14dp"
             android:minHeight="12dp"

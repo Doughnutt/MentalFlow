@@ -42,5 +42,15 @@
     <string name="test_back_title">确定退出测试？</string>
     <string name="reg_psw_hint">8~16位字母与数字组合</string>
     <string name="my_name">我的名字</string>
+    <string name="test_res_title">测试结果</string>
+    <string name="test_end">结束测试</string>
+    <string name="myinfo_mod_title">修改信息</string>
+    <string name="myinfo_mod_name">昵称</string>
+    <string name="myinfo_mod_age">年龄</string>
+    <string name="myinfo_mod_psw">密码</string>
+    <string name="myinfo_mod_gender">性别</string>
+    <string name="myinfo_mod_intro">简介</string>
+    <string name="myinfo_mod_intro1">本人很懒，还未添加简介哦~</string>
+    <string name="myinfo_setting_title">设置</string>
 
 </resources>

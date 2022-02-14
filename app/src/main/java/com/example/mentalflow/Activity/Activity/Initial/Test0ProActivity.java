@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Message;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -17,18 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.mentalflow.Activity.Activity.BaseActivity;
 import com.example.mentalflow.Activity.Activity.HomeActivity;
-import com.example.mentalflow.Activity.Activity.MainActivity;
 import com.example.mentalflow.Activity.DBOperator;
-import com.example.mentalflow.Activity.Fragment.TestFragment.TestProFragment;
-import com.example.mentalflow.Activity.Fragment.TestFragment.TestResFragment;
 import com.example.mentalflow.R;
-
-import java.util.ArrayList;
 
 public class Test0ProActivity extends BaseActivity {
 
@@ -258,7 +250,7 @@ public class Test0ProActivity extends BaseActivity {
             @Override
             public void run() {
                 DBOperator dbOperator = new DBOperator(); //调用数据库
-                dbOperator.insert_test0_result(id,res);
+                dbOperator.reg_insert_test0(id,res);
             }
         }).start();
     }

@@ -1,5 +1,6 @@
 package com.example.mentalflow.Activity;
 
+import com.example.mentalflow.Activity.Entity.PretestRes;
 import com.example.mentalflow.Activity.Entity.UserInfo;
 
 import java.sql.Connection;
@@ -59,7 +60,7 @@ public class DBOperator {
     }
 
     // 插入新注册的用户数据
-    public int insert_userInfo(UserInfo userInfo) {
+    public int reg_insert_userInfo(UserInfo userInfo) {
 
         String sql = "insert into user(id,phone,password,name,gender,age) values (?,?,?,?,?,?)";
         int new_id = 0;
@@ -86,7 +87,7 @@ public class DBOperator {
     }
 
     // 插入新注册用户的初量表结果
-    public void insert_test0_result(int id,int[] res) {
+    public void reg_insert_test0(int id, int[] res) {
         String sql = "insert into pretest values (?,?,?,?,?,?)";
         try (Connection conn = DBOpenHelper.getConn();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -101,57 +102,29 @@ public class DBOperator {
         }
     }
 
-    // 查询测试列表
-    public ArrayList<String> search_testList() {
+    // 查询账号密码是否匹配：如果匹配，返回用户类，否则返回false
+    public PretestRes test_search_pretest(int id) {
 
-        ArrayList<String> testList = new ArrayList<String>();
-        Connection conn = null;
-        conn = (Connection) DBOpenHelper.getConn();
-        String sql = "select * from test";
-        Statement st;
-        try {
-            st = (Statement) conn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
+        String sql = "select * from pretest where user_id = ?";
+        try (Connection conn = DBOpenHelper.getConn();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            while(rs.next()) {
-                testList.add(rs.getString(2));
+            stmt.setInt(1,id);
+            try(ResultSet rs = stmt.executeQuery()) {
+                if(rs.next()) {
+                    PretestRes pretestRes = new PretestRes();
+                    pretestRes.setEmotion(rs.getInt(2));
+                    pretestRes.setPsychology(rs.getInt(3));
+                    pretestRes.setRelationship(rs.getInt(4));
+                    pretestRes.setStudy(rs.getInt(5));
+                    pretestRes.setAbility(rs.getInt(6));
+                    return pretestRes;
+                }
             }
-            st.close();
-            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return testList;
-    }
 
-    // 查询问题列表
-    public ArrayList<String> search_queList(int test_id) {
-
-        ArrayList<String> queList = new ArrayList<String>();
-        Connection conn = null;
-        conn = (Connection) DBOpenHelper.getConn();
-        String sql = "select * from test";
-        Statement st;
-        try {
-            st = (Statement) conn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-
-            while(rs.next()) {
-                queList.add(rs.getString(2));
-            }
-            st.close();
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return queList;
-    }
-
-    // 查询选项列表
-    public ArrayList<String> search_optList(int test_id,int que_id) {
-
-        ArrayList<String> optList = new ArrayList<String>();
-
-        return optList;
+        return null;
     }
 }

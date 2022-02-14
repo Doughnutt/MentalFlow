@@ -12,37 +12,36 @@
     android:layout_height="wrap_content">
     <View
         style="@style/DottedLine"/>
+
     <TextView
         style="@style/Text_Title"
-        android:text="@string/mental_test"/>
+        android:text="@string/mental_test" />
 
     <com.flyco.tablayout.SlidingTabLayout
         android:id="@+id/test_tl"
         android:layout_width="360dp"
         android:layout_height="48dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="110dp"
         tl:tl_indicator_color="@color/blue"
         tl:tl_indicator_height="3dp"
         tl:tl_indicator_width="17dp"
         tl:tl_textBold="BOTH"
         tl:tl_textSelectColor="@color/black"
         tl:tl_textUnselectColor="@color/gray"
-        tl:tl_textsize="18sp"/>
-       <!--栏目间竖着的分割线
-       app:tl_divider_color="@color/gray"
-        app:tl_divider_width="1dp"-->
+        tl:tl_textsize="18sp" />
 
     <View
         style="@style/GrayLine"
-        android:layout_below="@id/test_tl"/>
+        android:layout_below="@id/test_tl" />
 
 </RelativeLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/test_vp"
         android:layout_width="match_parent"
-        android:layout_height="485dp"
-        android:layout_marginTop="177dp"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="177dp"
+        android:layout_marginBottom="60dp" />
 
 </RelativeLayout>

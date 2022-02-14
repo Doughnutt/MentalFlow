@@ -1,22 +1,14 @@
 package com.example.mentalflow.Activity.Activity.Initial;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import com.example.mentalflow.Activity.Activity.BaseActivity;
-import com.example.mentalflow.Activity.Fragment.TestFragment.TestPreFragment;
 import com.example.mentalflow.R;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Test0PreActivity extends BaseActivity {
