@@ -429,9 +429,9 @@ public class TestProFragment extends Fragment {
         } else if(id == 5) {
             int sum = 0;
             for (int j=0;j<queSize;j++) {
-                if (j == 0) {
+                if (opt[j] == 0) {
                     sum += 2;
-                } else if (j == 2) {
+                } else if (opt[j] == 2) {
                     sum += 1;
                 }
             }
@@ -446,11 +446,11 @@ public class TestProFragment extends Fragment {
         } else if(id == 6) {
             int a = 0,b = 0,c = 0,d = 0;
             for(int i =0;i<queSize;i++) {
-                if(i == 0) {
+                if(opt[i] == 0) {
                     a ++;
-                } else if (i == 1) {
+                } else if (opt[i] == 1) {
                     b ++;
-                } else if(i == 2) {
+                } else if(opt[i] == 2) {
                     c ++;
                 } else {
                     d ++;
