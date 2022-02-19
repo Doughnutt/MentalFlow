@@ -89,7 +89,7 @@
         android:overScrollMode="always"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <androidx.viewpager.widget.ViewPager
+        <com.example.mentalflow.Activity.View.FixedViewPager
             android:id="@+id/home_vp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

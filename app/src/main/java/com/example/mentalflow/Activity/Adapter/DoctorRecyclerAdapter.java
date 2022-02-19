@@ -32,7 +32,7 @@ public class DoctorRecyclerAdapter extends RecyclerView.Adapter<DoctorRecyclerAd
     public DoctorRecyclerAdapter.myViewHodler onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         View view= View.inflate(context,R.layout.item_doc_card,null);
         final myViewHodler holder=new myViewHodler(view);
-        holder.doctorView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(context, DoctorInfoActivity.class);
@@ -61,7 +61,7 @@ public class DoctorRecyclerAdapter extends RecyclerView.Adapter<DoctorRecyclerAd
 
 
     static class myViewHodler extends RecyclerView.ViewHolder  {
-        View doctorView;
+
         private ImageView docImage;
         private TextView doc_name;
         private TextView label1;
@@ -70,7 +70,6 @@ public class DoctorRecyclerAdapter extends RecyclerView.Adapter<DoctorRecyclerAd
 
         public myViewHodler(@NonNull @NotNull View itemView) {
             super(itemView);
-            doctorView=itemView;
             docImage=(ImageView) itemView.findViewById(R.id.dc_image);
             doc_name=(TextView)itemView.findViewById(R.id.dc_name);
             label1=(TextView)itemView.findViewById(R.id.dc_label);

@@ -12,10 +12,10 @@
     <string name="test1_string">心理承受能力测试</string>
     <string name="test2_string">威廉斯创造力倾向量表</string>
     <string name="test_label">开始测试</string>
-    <string name="guide1">丰富的心理资讯帮助你捕捉需要的信息</string>
-    <string name="guide2">有趣的心理测试加深你对自己的了解</string>
-    <string name="guide3">专业的心理咨询师解决你的各类生活困惑</string>
-    <string name="guide4">特增穿戴设备协同管理你的身心健康</string>
+    <string name="guide1">丰富的心理资讯\n帮助你捕捉需要的信息</string>
+    <string name="guide2">有趣的心理测试\n加深你对自己的了解</string>
+    <string name="guide3">专业的心理咨询师\n解决你的各类生活困惑</string>
+    <string name="guide4">特增穿戴设备\n协同管理你的身心健康</string>
     <string name="guide5">祝你拥有自在的人生</string>
     <string name="start_str">大学生心理健康评测软件</string>
     <string name="re_hint">输入手机号</string>
@@ -52,5 +52,7 @@
     <string name="myinfo_mod_intro">简介</string>
     <string name="myinfo_mod_intro1">本人很懒，还未添加简介哦~</string>
     <string name="myinfo_setting_title">设置</string>
-
+    <string name="article_test_content">心理学是一门研究人类心理现象及其影响下的精神功能和行为活动的科学，兼顾突出的理论性和应用（实践）性。\n心理学包括基础心理学与应用心理学，其研究涉及知觉、认知、情绪、思维、人格、行为习惯、人际关系、社会关系，人工智能，IQ，性格等许多领域，也与日常生活的许多领域——家庭、教育、健康、社会等发生关联。心理学一方面尝试用大脑运作来解释个体基本的行为与心理机能，同时，心理学也尝试解释个体心理机能在社会行为与社会动力中的角色；另外，它还与神经科学、医学、哲学、生物学、宗教学等学科有关，因为这些学科所探讨的生理或心理作用会影响个体的心智。实际上，很多人文和自然学科都与心理学有关，人类心理活动其本身就与人类生存环境密不可分。\n心理学家从事基础研究的目的是描述、解释、预测和影响行为。应用心理学家还有第五个目的——提高人类生活的质量。这些目标构成了心理学事业的基础。\n心理学符号在希腊语里是灵魂的意思，后来变成英文psyche。</string>
+    <string name="hospital_name">含有心理咨询门诊三甲医院\n（上海地区）</string>
+    <string name="hospital_intro">1.\n上海市精神卫生中心\n地址：上海市徐汇区零陵路604号\n（靠近宛平南路口）\n2.\n复旦大学附属中山医院\n地址：上海市徐汇区枫林路180号\n3.\n上海交通大学医学院附属新华医院\n地址：上海市杨浦区控江路1665号\n4.\n同济大学附属东方医院\n地址：上海市浦东新区即墨路150号\n（近浦东南路浦东大道口）\n</string>
 </resources>

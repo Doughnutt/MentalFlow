@@ -4,6 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/hospital_info"
+    android:background="@mipmap/hospital"
     tools:context=".Activity.Activity.HospitalActivity">
+    <TextView
+        android:id="@+id/hospital_name"
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hospital_name"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="129dp"/>
+    <TextView
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hospital_intro"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:layout_margin="40dp"
+        android:lineHeight="20dp"
+        android:layout_below="@+id/hospital_name"/>
 </RelativeLayout>

@@ -1,0 +1,43 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+p {
+    margin:0px 20px;
+    text-indent: 2em;
+    line-height:23px
+}
+
+.title {
+    padding-top: 19px;
+    padding-left: 22px;
+    display: inline-block;
+}
+
+.label {
+    display: inline-block;
+    color: #DC797E;
+    font-size: 10px;
+    text-align: center;
+    border: 1px solid #DC797E;
+    border-radius: 60px;
+    margin-left: 5px;
+    width: 40px;
+    height: 18px;
+    line-height: 18px;
+}
+
+.datetime {
+    width: 210px;
+    height: 27px;
+    font-weight: 400;
+    color: #4D4D4D;
+    font-size: 10px;
+    padding-left: 22px;
+}
+
+.ref {
+    text-align: right;
+    font-weight: 400;
+}

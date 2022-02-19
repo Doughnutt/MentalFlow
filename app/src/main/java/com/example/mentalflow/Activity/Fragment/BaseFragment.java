@@ -50,9 +50,9 @@ public abstract class BaseFragment extends Fragment {
         Intent in = new Intent(getActivity(), cls);
         startActivity(in);
     }
-    public void navigateToFragment(Class cls) {
+    public void navigateToWithValue(Class cls,String name,int id) {
         Intent in = new Intent(getActivity(), cls);
-        in.putExtra("id",1);
+        in.putExtra(name,id);
         startActivity(in);
     }
     public void buttonNavigateTo(Button btn, Class cls) {

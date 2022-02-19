@@ -52,9 +52,9 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void initData() {
         Intent intent = getIntent();
-
-        homeFragments.add(HomeFragment.newInstance());
+        int home_category = intent.getIntExtra("home_category",0); //获取上个活动传入的类别值
         int test_category = intent.getIntExtra("test_category",0); //获取上个活动传入的类别值
+        homeFragments.add(HomeFragment.newInstance(home_category));
         homeFragments.add(TestFragment.newInstance(test_category));
         homeFragments.add(HardwareFragment.newInstance());
         homeFragments.add(InquiryFragment.newInstance());
@@ -78,6 +78,7 @@ public class HomeActivity extends BaseActivity {
         homeActivityViewPager.setCurrentItem(select_page); //设置fragment
 
         homeActivityCommonTabLayout.setOnTabSelectListener(new OnTabSelectListener() {
+//            绑定图标和viewpager
             @Override
             public void onTabSelect(int position)
             {

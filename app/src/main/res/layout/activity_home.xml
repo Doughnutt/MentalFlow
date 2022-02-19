@@ -8,7 +8,7 @@
     xmlns:tl="http://schemas.android.com/apk/res-auto"
     tools:context=".Activity.Activity.HomeActivity">
 
-    <androidx.viewpager.widget.ViewPager
+    <com.example.mentalflow.Activity.View.FixedViewPager
         android:id="@+id/home_activity_vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,14 +16,14 @@
 
     <com.flyco.tablayout.CommonTabLayout
         android:id="@+id/home_activity_ctl"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
         tl:tl_iconHeight="23dp"
         tl:tl_iconWidth="23dp"
         tl:tl_textSelectColor="@color/pink"
         tl:tl_textUnselectColor="@color/dark_gray"
-        tl:tl_textsize="12sp"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/white"
-        android:layout_alignParentBottom="true"/>
+        tl:tl_textsize="12sp" />
 
 </RelativeLayout>

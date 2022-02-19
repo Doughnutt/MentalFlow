@@ -27,95 +27,77 @@
             android:textSize="26sp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="34dp"/>
+
         <RelativeLayout
             android:layout_width="320dp"
             android:layout_height="600dp"
-            android:layout_marginLeft="55dp">
+            android:layout_centerHorizontal="true">
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="97dp"
-                android:background="@mipmap/time"/>
+                android:background="@mipmap/time" />
+
             <TextView
                 android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="从业时间:"
+                android:layout_marginLeft="95dp"
                 android:layout_marginTop="100dp"
+                android:text="从业时间:10年"
                 android:textColor="@color/black"
-                android:layout_marginLeft="90dp"/>
-            <TextView
-                android:id="@+id/info_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="10年"
-                android:layout_marginTop="100dp"
-                android:textColor="@color/black"
-                android:layout_toRightOf="@+id/time"/>
+                android:textSize="16sp" />
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="147dp"
-                android:background="@mipmap/pro_bg"/>
+                android:background="@mipmap/pro_bg" />
+
             <TextView
                 android:id="@+id/bg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="专业背景:"
+                android:layout_marginLeft="95dp"
                 android:layout_marginTop="150dp"
+                android:text="专业背景:国家二级心理咨询师"
                 android:textColor="@color/black"
-                android:layout_marginLeft="95dp"/>
-            <TextView
-                android:id="@+id/info_bg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="国家二级心理咨询师"
-                android:layout_marginTop="150dp"
-                android:textColor="@color/black"
-                android:layout_toRightOf="@+id/bg"/>
+                android:textSize="16sp" />
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="197dp"
-                android:background="@mipmap/field"/>
+                android:background="@mipmap/field" />
+
             <TextView
                 android:id="@+id/field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="擅长领域:"
+                android:layout_marginLeft="95dp"
                 android:layout_marginTop="200dp"
+                android:text="擅长领域:情感 青少年"
                 android:textColor="@color/black"
-                android:layout_marginLeft="95dp"/>
-            <TextView
-                android:id="@+id/info_field"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="情感 青少年"
-                android:layout_marginTop="200dp"
-                android:textColor="@color/black"
-                android:layout_toRightOf="@+id/field"/>
+                android:textSize="16sp" />
+
             <TextView
                 android:id="@+id/intro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="个人简介："
                 android:layout_marginTop="250dp"
-                android:textColor="@color/black"/>
+                android:text="个人简介："
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
             <TextView
                 android:id="@+id/info_intro"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:layout_height="100dp"
+                android:layout_below="@+id/intro"
+                android:text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx……"
                 android:textColor="@color/black"
-                android:text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx……"
-                android:layout_below="@+id/intro"/>
+                android:textSize="16sp" />
 
         </RelativeLayout>
         <Button

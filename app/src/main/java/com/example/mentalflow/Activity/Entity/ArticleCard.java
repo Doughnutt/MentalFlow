@@ -1,17 +1,32 @@
 package com.example.mentalflow.Activity.Entity;
 
-public class ArticleCard {
+import java.io.Serializable;
+
+public class ArticleCard implements Serializable {
     private int id;//文章id
-    private String articleName;//文章名称
+    private String title;//文章名称
     private int imageId;//文章图片id
     private String label;//文章类型
-    private String intro;//文章介绍
+    private String content;//文章介绍
+    private String date;//文章发布日期
+    private String ref;//文章发布来源
 
-    public ArticleCard(String articleName, int imageId, String label, String intro) {
-        this.articleName = articleName;
-        this.imageId = imageId;
-        this.label = label;
-        this.intro = intro;
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public int getId() {
@@ -22,12 +37,12 @@ public class ArticleCard {
         this.id = id;
     }
 
-    public String getArticleName() {
-        return articleName;
+    public String getTitle() {
+        return title;
     }
 
-    public void setArticleName(String articleName) {
-        this.articleName = articleName;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public int getImageId() {
@@ -46,11 +61,27 @@ public class ArticleCard {
         this.label = label;
     }
 
-    public String getIntro() {
-        return intro;
+    public String getContent() {
+        return content;
     }
 
-    public void setIntro(String intro) {
-        this.intro = intro;
+    public void setContent(String content) {
+        this.content = content;
+    }
+    public ArticleCard(){
+
+    }
+    public ArticleCard(String title,int imageId,String label, String content) {
+        this.title = title;
+        this.imageId=imageId;
+        this.label = label;
+        this.content = content;
+    }
+    public ArticleCard(String title, String label, String content, String date, String ref){
+        this.title = title;
+        this.label = label;
+        this.content = content;
+        this.date=date;
+        this.ref=ref;
     }
 }

@@ -26,13 +26,15 @@ public class HomeFragment extends BaseFragment {
     private String[] mTitles = {"推荐", "心理","科普","婚恋","家庭","教育"};
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private MyPagerAdapter mAdapter;
+    private int now_category = 0;
     public HomeFragment() {
         // Required empty public constructor
     }
 
 
-    public static HomeFragment newInstance() {
+    public static HomeFragment newInstance(int now) {
         HomeFragment fragment = new HomeFragment();
+      fragment.now_category = now;
         return fragment;
     }
 
@@ -52,7 +54,7 @@ public class HomeFragment extends BaseFragment {
 
 //    @Override
     protected void initData() {
-      homeImageButton.setOnClickListener(v -> navigateTo(ArticleActivity.class));
+      homeImageButton.setOnClickListener(v -> navigateToWithValue(ArticleActivity.class,"article_id",0));
         getArticleCategoryList();
     }
 
@@ -62,6 +64,7 @@ public class HomeFragment extends BaseFragment {
             mAdapter=new MyPagerAdapter(getFragmentManager(),mTitles,mFragments);
             homeViewPager.setAdapter(mAdapter);
             slidingTabLayout.setViewPager(homeViewPager);
+            slidingTabLayout.setCurrentTab(this.now_category);//设置当前处于哪一个分类
         }
     }
 }
