@@ -138,7 +138,7 @@ public class DBOperator {
     public ArrayList<ArticleCard> GetArticleByType(int type){
         System.out.println("GetArticleByType，当前type为："+type);
         ArrayList<ArticleCard> list=new ArrayList<>();
-        String sql = "select * from article where type = ?";
+        String sql = "select id_article,content,title from article where type =?";
         try (Connection conn = DBOpenHelper.getConn();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1,type);
@@ -146,9 +146,9 @@ public class DBOperator {
                 while(rs.next()) {
                     ArticleCard articleCard=new ArticleCard();
                     articleCard.setId(rs.getInt(1));
-                    articleCard.setTitle(rs.getString(2));
+                    articleCard.setContent(rs.getString(2));
+                    articleCard.setTitle(rs.getString(3));
                     articleCard.setLabel(getArticleType(type));
-                    articleCard.setContent(rs.getString(5));
                     articleCard.setImageId(R.mipmap.guide_test_bg);
                     list.add(articleCard);
 

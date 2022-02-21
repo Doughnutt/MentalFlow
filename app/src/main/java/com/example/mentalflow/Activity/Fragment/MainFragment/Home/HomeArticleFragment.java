@@ -45,22 +45,6 @@ public class HomeArticleFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-    private Handler handler = new Handler(Looper.myLooper()) {
-        @SuppressLint("HandlerLeak")
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            switch (msg.what){
-                case GET_TEXT:
-                    System.out.println("已得到文章内容");
-                    break;
-                case INIT_TEXT:
-                    System.out.println("未得到文章内容，初始化");
-                    break;
-                default:
-                    break;
-            }
-        }
-    };
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -83,20 +67,19 @@ public class HomeArticleFragment extends Fragment {
         else if (title.equals("婚恋")) setArticleCard(3);
         else if (title.equals("家庭")) setArticleCard(4);
         else if (title.equals("教育")) setArticleCard(5);
+        else if (title.equals("人际")) setArticleCard(6);
+        else if (title.equals("睡眠")) setArticleCard(7);
+        else if (title.equals("性别")) setArticleCard(8);
+        else if (title.equals("性格")) setArticleCard(9);
+        else if (title.equals("职场")) setArticleCard(10);
         else Recommend();
 
     }
 //    设置推荐分类下的文章
     private void Recommend(){
         for (int i = 0; i < 8; i++) {
-            ArticleCard ac=new ArticleCard();
-            ac.setTitle("今日文章"+i);
-            ac.setImageId(R.mipmap.icon_colored);
-            ac.setLabel("青少年");
-            ac.setContent("XXXXXXXXXXXX");
-            ac.setId(0);
-//                        ArticleCard articleCard1 = new ArticleCard("今日文章"+i, R.mipmap.icon_colored, "青少年", "XXXX");
-            articleCardList.add(ac);
+             ArticleCard ac = new ArticleCard("今日文章"+i, R.mipmap.icon_colored, "青少年", "XXXX");
+             articleCardList.add(ac);
         }
     }
 //    设置除推荐外各分类下的文章
@@ -109,6 +92,8 @@ public class HomeArticleFragment extends Fragment {
                 ArrayList<ArticleCard> list=dbOperator.GetArticleByType(type);
                 if(!list.isEmpty()||list.size()!=0){
                 for (int i = 0; i < list.size() ;i++) {
+//                   ArticleCard articleCard1 = new ArticleCard("今日文章"+i, R.mipmap.icon_colored, "青少年", "XXXX");
+//                   articleCardList.add(articleCard1);
                     articleCardList.add(list.get(i));
                 }
                 Message msg = new Message();
@@ -123,4 +108,20 @@ public class HomeArticleFragment extends Fragment {
             }
         }).start();
     }
+    private Handler handler = new Handler(Looper.myLooper()) {
+        @SuppressLint("HandlerLeak")
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            switch (msg.what){
+                case GET_TEXT:
+                    System.out.println("已得到文章内容");
+                    break;
+                case INIT_TEXT:
+                    System.out.println("未得到文章内容，error");
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 }

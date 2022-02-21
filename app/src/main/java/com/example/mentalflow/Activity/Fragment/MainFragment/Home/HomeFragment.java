@@ -23,7 +23,7 @@ public class HomeFragment extends BaseFragment {
     private AppBarLayout appBarLayout;
 
     //标签名称组
-    private String[] mTitles = {"推荐", "心理","科普","婚恋","家庭","教育"};
+    private String[] mTitles = {"推荐", "心理","科普","婚恋","家庭","教育","人际","睡眠","性别","性格","职场"};
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private MyPagerAdapter mAdapter;
     private int now_category = 0;

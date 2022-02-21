@@ -65,7 +65,6 @@ public class ArticleActivity extends BaseActivity {
                     label = articleCard.getLabel();
                     title = articleCard.getTitle();
                     ref = "出处：" + articleCard.getRef();
-                    System.out.println(title+"   "+label);
                     Message msg = new Message();
                     msg.what=1;
                     handler.sendMessage(msg);
