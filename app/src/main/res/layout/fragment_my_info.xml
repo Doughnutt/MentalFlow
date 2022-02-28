@@ -45,11 +45,11 @@
         android:layout_marginTop="360dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/myinfo_white_shape">
+
         <Button
             android:id="@+id/myinfo_btn1"
             style="@style/MyInfo_Button"
-            android:text="个人信息"
-            />
+            android:text="个人信息" />
         <Button
             android:id="@+id/myinfo_btn2"
             style="@style/MyInfo_Button"

@@ -54,7 +54,7 @@ public class RegAgeActivity extends BaseActivity {
                 SharedPreferences.Editor editor = getSharedPreferences("UserInfo",MODE_PRIVATE).edit();
                 editor.putInt("id",userInfo.getId());
                 editor.putString("phone",userInfo.getPhone());
-//                editor.putString("password",userInfo.getPassword());
+                editor.putString("password",userInfo.getPassword());
                 editor.putString("name",userInfo.getName());
                 editor.putString("gender", userInfo.getGender());
                 editor.putInt("age", userInfo.getAge());

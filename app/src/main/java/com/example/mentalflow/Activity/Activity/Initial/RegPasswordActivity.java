@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -61,14 +62,16 @@ public class RegPasswordActivity extends BaseActivity {
                 SharedPreferences.Editor editor = getSharedPreferences("UserInfo",MODE_PRIVATE).edit();
                 editor.putInt("id",userInfo.getId());
                 editor.putString("phone",userInfo.getPhone());
-//                editor.putString("password",userInfo.getPassword());
+                editor.putString("password",userInfo.getPassword());
                 editor.putString("name",userInfo.getName());
                 editor.putString("gender", userInfo.getGender());
                 editor.putInt("age", userInfo.getAge());
                 editor.putString("intro",userInfo.getIntro());
                 editor.apply();
-                Toast.makeText(context,"你好，"+userInfo.getName(), Toast.LENGTH_SHORT).show();
+
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+                Toast.makeText(context,"你好，"+userInfo.getName(), Toast.LENGTH_SHORT).show();
                 overridePendingTransition(0,0);
             }
         }

@@ -9,13 +9,12 @@
     tools:context=".Activity.Activity.MainActivity">
 
     <ImageView
-        android:layout_centerHorizontal="true"
         android:layout_width="234dp"
         android:layout_height="186dp"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginTop="135dp"
-        android:background="@mipmap/icon"
-        />
+        android:background="@mipmap/icon" />
     <TextView
         android:id="@+id/main_tv"
         android:layout_width="180dp"

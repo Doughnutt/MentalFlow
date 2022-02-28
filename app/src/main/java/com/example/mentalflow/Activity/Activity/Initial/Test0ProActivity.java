@@ -184,7 +184,10 @@ public class Test0ProActivity extends BaseActivity {
                     cal(selected_opt);
 
                     // 跳转主页
-                    navigateTo(HomeActivity.class);
+                    Intent intent = new Intent(Test0ProActivity.this, HomeActivity.class);
+                    //清空之前的栈
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
                 }
             }
         });

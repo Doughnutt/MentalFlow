@@ -27,6 +27,7 @@ public class LoginActivity extends BaseActivity {
     private Button mLoginButton;
     private final Context context = LoginActivity.this;
 
+
     @Override
     protected int initLayout() {
         return R.layout.activity_login;

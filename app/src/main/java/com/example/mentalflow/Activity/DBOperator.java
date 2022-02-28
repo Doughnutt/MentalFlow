@@ -228,4 +228,79 @@ public class DBOperator {
         }
         return null;
     }
+
+    // 修改用户姓名
+    public void myinfo_update_name(int id,String name) {
+        String sql = "update user set name=? where id=?";
+        try (Connection conn = DBOpenHelper.getConn();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1,name);
+            stmt.setInt(2,id);
+            stmt.executeUpdate();
+            DBOpenHelper.closeAll(conn,stmt);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //修改用户密码
+    public void myinfo_update_psw(int id,String psw) {
+        String sql = "update user set password=? where id=?";
+        try (Connection conn = DBOpenHelper.getConn();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1,psw);
+            stmt.setInt(2,id);
+            stmt.executeUpdate();
+            DBOpenHelper.closeAll(conn,stmt);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //修改用户年龄
+    public void myinfo_update_age(int id,int age) {
+        String sql = "update user set age=? where id=?";
+        try (Connection conn = DBOpenHelper.getConn();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1,age);
+            stmt.setInt(2,id);
+            stmt.executeUpdate();
+            DBOpenHelper.closeAll(conn,stmt);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //修改用户性别
+    public void myinfo_update_gender(int id,String gender) {
+        String sql = "update user set gender=? where id=?";
+        try (Connection conn = DBOpenHelper.getConn();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1,gender);
+            stmt.setInt(2,id);
+            stmt.executeUpdate();
+            DBOpenHelper.closeAll(conn,stmt);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //修改用户简介
+    public void myinfo_update_intro(int id,String intro) {
+        String sql = "update user set intro=? where id=?";
+        try (Connection conn = DBOpenHelper.getConn();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1,intro);
+            stmt.setInt(2,id);
+            stmt.executeUpdate();
+            DBOpenHelper.closeAll(conn,stmt);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
