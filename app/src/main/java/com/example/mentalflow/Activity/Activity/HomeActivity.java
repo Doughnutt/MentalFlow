@@ -1,6 +1,8 @@
 package com.example.mentalflow.Activity.Activity;
 
 import android.content.Intent;
+import android.view.KeyEvent;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
@@ -109,6 +111,29 @@ public class HomeActivity extends BaseActivity {
             }
         });
 
+    }
 
+    private long firstTime;// 记录点击返回时第一次的时间毫秒值
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK){// 点击了返回按键
+            exitApp(2000);// 退出应用
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    /**
+     * 退出应用
+     * @param timeInterval 设置第二次点击退出的时间间隔
+     */
+    private void exitApp(long timeInterval) {
+        if(System.currentTimeMillis() - firstTime >= timeInterval){
+            Toast.makeText(mContext,"再按一次退出程序",Toast.LENGTH_SHORT).show();
+            firstTime = System.currentTimeMillis();
+        }else {
+            finish();// 销毁当前activity
+            System.exit(0);// 完全退出应用
+        }
     }
 }
