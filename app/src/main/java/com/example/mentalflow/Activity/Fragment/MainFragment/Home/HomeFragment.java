@@ -1,5 +1,6 @@
 package com.example.mentalflow.Activity.Fragment.MainFragment.Home;
 
+import android.util.Log;
 import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 
 public class HomeFragment extends BaseFragment {
 
+    private static final String TAG = "return";
     private ImageButton homeImageButton;
     private ViewPager homeViewPager;
     private SlidingTabLayout slidingTabLayout;

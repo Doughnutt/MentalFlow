@@ -38,11 +38,11 @@ public abstract class BaseFragment extends Fragment {
         initData();
     }
 
-    @Override
-    public void  onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
+//    @Override
+//    public void  onDestroyView() {
+//        super.onDestroyView();
+//        unbinder.unbind();
+//    }
     protected abstract int initLayout();//初始化布局
     protected abstract void initView();//初始化控件
     protected abstract void initData();//初始化数据

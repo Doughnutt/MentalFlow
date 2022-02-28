@@ -33,7 +33,7 @@ public class HomeActivity extends BaseActivity {
             R.mipmap.home_select, R.mipmap.test_select,
             R.mipmap.medicalinfo_select, R.mipmap.consultation_select,R.mipmap.myinfo_select};
 
-    private ArrayList<Fragment> homeFragments = new ArrayList<>();
+    private ArrayList<Fragment> fragments = new ArrayList<>();
     private ArrayList<CustomTabEntity> homeTabEntities = new ArrayList<>();
     private ViewPager homeActivityViewPager;
     private CommonTabLayout homeActivityCommonTabLayout;
@@ -54,25 +54,25 @@ public class HomeActivity extends BaseActivity {
         Intent intent = getIntent();
         int home_category = intent.getIntExtra("home_category",0); //获取上个活动传入的类别值
         int test_category = intent.getIntExtra("test_category",0); //获取上个活动传入的类别值
-        homeFragments.add(HomeFragment.newInstance(home_category));
-        homeFragments.add(TestFragment.newInstance(test_category));
-        homeFragments.add(HardwareFragment.newInstance());
-        homeFragments.add(InquiryFragment.newInstance());
-        homeFragments.add(MyInfoFragment.newInstance());
+        fragments.add(HomeFragment.newInstance(home_category));
+        fragments.add(TestFragment.newInstance(test_category));
+        fragments.add(HardwareFragment.newInstance());
+        fragments.add(InquiryFragment.newInstance());
+        fragments.add(MyInfoFragment.newInstance());
 
         for (int i = 0; i < homeTitles.length; i++) {
-            homeTabEntities.add(new TabEntity(homeTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
             //标题，选中的icon，未选中的icon
+            homeTabEntities.add(new TabEntity(homeTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
         }
 
         // 通过传值记录跳转回哪个页面，下面的执行顺序不能换
         int select_page = intent.getIntExtra("select_page",0);
 
-        homeActivityViewPager.setOffscreenPageLimit(homeFragments.size());
+        homeActivityViewPager.setOffscreenPageLimit(fragments.size());
 
         homeActivityCommonTabLayout.setTabData(homeTabEntities);
 
-        homeActivityViewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager(),homeTitles,homeFragments));
+        homeActivityViewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager(),homeTitles, fragments));
 
         homeActivityCommonTabLayout.setCurrentTab(select_page); //设置导航栏
         homeActivityViewPager.setCurrentItem(select_page); //设置fragment
@@ -82,7 +82,7 @@ public class HomeActivity extends BaseActivity {
             @Override
             public void onTabSelect(int position)
             {
-                System.out.println(position);
+//                System.out.println(position);
                 homeActivityViewPager.setCurrentItem(position);
             }
 
@@ -99,7 +99,7 @@ public class HomeActivity extends BaseActivity {
 
             @Override
             public void onPageSelected(int position) {
-                System.out.println(position);
+//                System.out.println(position);
                 homeActivityCommonTabLayout.setCurrentTab(position);
             }
 

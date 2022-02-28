@@ -9,11 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mentalflow.Activity.Activity.ArticleActivity;
 import com.example.mentalflow.Activity.Activity.TestActivity;
 import com.example.mentalflow.Activity.Entity.ArticleCard;
+import com.example.mentalflow.Activity.Fragment.MainFragment.Home.HomeArticleFragment;
 import com.example.mentalflow.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -76,4 +78,5 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.myViewHo
             ac_info=(TextView)itemView.findViewById(R.id.article_info);
         }
     }
+
 }

@@ -6,17 +6,26 @@ public class DoctorCard {
         private int imageId;//医生图片id
         private String type;//医生擅长类型
         private String intro;//医生介绍
-        public DoctorCard(){
-        }
+        private String exp;//从业年龄
+        private String background;//相关资历
 
-        public DoctorCard(String docName, int imageId, String type, String intro) {
-            this.docName = docName;
-            this.imageId = imageId;
-            this.type = type;
-            this.intro = intro;
-        }
+    public String getExp() {
+        return exp;
+    }
 
-        public int getId() {
+    public void setExp(String exp) {
+        this.exp = exp;
+    }
+
+    public String getBackground() {
+        return background;
+    }
+
+    public void setBackground(String background) {
+        this.background = background;
+    }
+
+    public int getId() {
             return id;
         }
 

@@ -1,6 +1,7 @@
 package com.example.mentalflow.Activity;
 
 import com.example.mentalflow.Activity.Entity.ArticleCard;
+import com.example.mentalflow.Activity.Entity.DoctorCard;
 import com.example.mentalflow.Activity.Entity.PretestRes;
 import com.example.mentalflow.Activity.Entity.UserInfo;
 import com.example.mentalflow.R;
@@ -302,5 +303,55 @@ public class DBOperator {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+//    获取医生简介卡
+    public ArrayList<DoctorCard> getDoctorIntrodCard(){
+        ArrayList<DoctorCard> list=new ArrayList<>();
+        String sql = "SELECT doc_id,doc_name,doc_label,doc_info,doc_sex FROM doctor_info ";
+        try (Connection conn = DBOpenHelper.getConn();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            try(ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    DoctorCard doctorCard=new DoctorCard();
+                    doctorCard.setId(rs.getInt(1));
+                    doctorCard.setDocName(rs.getString(2));
+                    doctorCard.setType(rs.getString(3));
+                    doctorCard.setIntro(rs.getString(4));
+                    if (rs.getInt(5)==0) doctorCard.setImageId(R.mipmap.doc_m);
+                    else doctorCard.setImageId(R.mipmap.doc_f);
+                    list.add(doctorCard);
+                }
+                DBOpenHelper.closeAll(conn,stmt,rs);
+                return list;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    //    获取医生简介卡
+    public DoctorCard getDoctorInfo(int id){
+        DoctorCard doctorCard=new DoctorCard();
+        String sql = "SELECT doc_name,doc_pro_bg,doc_info,doc_label,doc_exp,doc_sex FROM doctor_info WHERE doc_id=?";
+        try (Connection conn = DBOpenHelper.getConn();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1,id);
+            try(ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    doctorCard.setDocName(rs.getString(1));
+                    doctorCard.setBackground(rs.getString(2));
+                    doctorCard.setIntro(rs.getString(3));
+                    doctorCard.setType(rs.getString(4));
+                    doctorCard.setExp(rs.getString(5)+"年");
+                    if (rs.getInt(6)==0) doctorCard.setImageId(R.mipmap.doc_m);
+                    else doctorCard.setImageId(R.mipmap.doc_f);
+                }
+                DBOpenHelper.closeAll(conn,stmt,rs);
+                return doctorCard;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

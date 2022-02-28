@@ -1,28 +1,22 @@
 package com.example.mentalflow.Activity.Activity;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.mentalflow.Activity.DBOperator;
 import com.example.mentalflow.Activity.Entity.ArticleCard;
 import com.example.mentalflow.R;
 import com.google.android.material.appbar.MaterialToolbar;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ArticleActivity extends BaseActivity {
-    //private ImageButton imageButton;
-    //实体类
-    private List<ArticleCard> articleCardList = new ArrayList<>();
-    //定义view用来设置fragment的layout
+    private MaterialToolbar toolbar;
     private TextView tv_title,tv_label,tv_date,tv_content,tv_ref,tv_tb;
     private int id;
     private String content,title,label,date,ref;
@@ -48,6 +42,7 @@ public class ArticleActivity extends BaseActivity {
         tv_title=findViewById(R.id.article_title);
         tv_ref=findViewById(R.id.article_ref);
         tv_tb=findViewById(R.id.type_tb);
+        toolbar=findViewById(R.id.article_toolbar);
     }
 
     @Override
