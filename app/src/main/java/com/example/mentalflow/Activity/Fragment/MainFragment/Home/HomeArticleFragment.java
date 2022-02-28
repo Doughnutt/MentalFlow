@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -29,6 +30,7 @@ import java.util.List;
 public class HomeArticleFragment extends BaseFragment {
     private String title;
     private RecyclerView recyclerView;
+    private SwipeRefreshLayout refreshLayout;
     private List<ArticleCard> articleCardList = new ArrayList<>();
     private static final int GET_TEXT=1;
     private static final int INIT_TEXT=0;
@@ -47,16 +49,23 @@ public class HomeArticleFragment extends BaseFragment {
     @Override
     protected void initView() {
         recyclerView=mRootView.findViewById(R.id.home_article_rv);
+        refreshLayout=mRootView.findViewById(R.id.home_article_refresh);
     }
 
     @Override
     protected void initData() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        //只有第一次需要添加测试内容
+        refreshLayout.setColorSchemeResources(R.color.pink);
+//        进入主页即刷新页面
+        refreshLayout.measure(0,0);
+        refreshLayout.setRefreshing(true);
+//      只有第一次需要添加测试内容
         if (articleCardList.size() == 0) initArticleView();
         ArticleAdapter articleAdapter = new ArticleAdapter(getActivity(), articleCardList);
         recyclerView.setAdapter(articleAdapter);
+
+
     }
     private void initArticleView() {
        //根据标题添加对应类目的文章
@@ -71,15 +80,12 @@ public class HomeArticleFragment extends BaseFragment {
         else if (title.equals("性别")) setArticleCard(8);
         else if (title.equals("性格")) setArticleCard(9);
         else if (title.equals("职场")) setArticleCard(10);
-        else Recommend();
+        else setArticleCard(0);
 
     }
 //    设置推荐分类下的文章
     private void Recommend(){
-        for (int i = 0; i < 8; i++) {
-             ArticleCard ac = new ArticleCard("今日文章"+i, R.mipmap.icon_colored, "青少年", "XXXX");
-             articleCardList.add(ac);
-        }
+
     }
 //    设置除推荐外各分类下的文章
     private void setArticleCard(int type){
@@ -103,6 +109,11 @@ public class HomeArticleFragment extends BaseFragment {
                     msg.what = INIT_TEXT;
                     handler.sendMessage(msg);
                 }
+                refreshLayout.setRefreshing(true);
+                if (refreshLayout.isRefreshing()) {
+                    refreshLayout.setRefreshing(false);
+                }
+
             }
         }).start();
     }
