@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class HomeFragment extends BaseFragment {
 
-    private static final String TAG = "return";
     private ImageButton homeImageButton;
     private ViewPager homeViewPager;
     private SlidingTabLayout slidingTabLayout;
@@ -29,6 +28,7 @@ public class HomeFragment extends BaseFragment {
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private MyPagerAdapter mAdapter;
     private int now_category = 0;
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -61,8 +61,8 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void getArticleCategoryList() {
-        for(String title:mTitles){
-            mFragments.add(HomeArticleFragment.newInstance(title));
+        for (int i = 0; i < mTitles.length; i++) {
+            mFragments.add(HomeArticleFragment.newInstance(i));
             mAdapter=new MyPagerAdapter(getFragmentManager(),mTitles,mFragments);
             homeViewPager.setAdapter(mAdapter);
             slidingTabLayout.setViewPager(homeViewPager);

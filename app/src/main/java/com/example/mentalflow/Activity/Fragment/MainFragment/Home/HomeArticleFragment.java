@@ -4,17 +4,14 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.util.Log;
+
 
 import com.example.mentalflow.Activity.Adapter.ArticleAdapter;
 import com.example.mentalflow.Activity.DBOperator;
@@ -22,20 +19,26 @@ import com.example.mentalflow.Activity.Entity.ArticleCard;
 
 import com.example.mentalflow.Activity.Fragment.BaseFragment;
 import com.example.mentalflow.R;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class HomeArticleFragment extends BaseFragment {
-    private String title;
+    private int title;
     private RecyclerView recyclerView;
-    private SwipeRefreshLayout refreshLayout;
+    private RefreshLayout refreshLayout;
     private List<ArticleCard> articleCardList = new ArrayList<>();
     private static final int GET_TEXT=1;
     private static final int INIT_TEXT=0;
+    private int pages=0;
+    private boolean endLoading=true;
+    private ArticleAdapter articleAdapter;
 
-    public static HomeArticleFragment newInstance(String title) {
+    public static HomeArticleFragment newInstance(int title) {
         HomeArticleFragment fragment = new HomeArticleFragment();
         fragment.title=title;
         return fragment;
@@ -56,31 +59,40 @@ public class HomeArticleFragment extends BaseFragment {
     protected void initData() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        refreshLayout.setColorSchemeResources(R.color.pink);
-//        进入主页即刷新页面
-        refreshLayout.measure(0,0);
-        refreshLayout.setRefreshing(true);
+//        首次自动刷新
+        refreshLayout.autoRefresh();
 //      只有第一次需要添加测试内容
-        if (articleCardList.size() == 0) initArticleView();
-        ArticleAdapter articleAdapter = new ArticleAdapter(getActivity(), articleCardList);
+        if (articleCardList.size() == 0) {
+            setArticleCard(title,0,0);
+            articleAdapter= new ArticleAdapter(getActivity(), articleCardList);
+        }
         recyclerView.setAdapter(articleAdapter);
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() { //下拉刷新
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+                setArticleCard(title,0,0);
+                articleAdapter = new ArticleAdapter(getActivity(), articleCardList);
+                recyclerView.setAdapter(articleAdapter);
+                refreshLayout.finishRefresh();
+            }
+        });
 
+        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() { //上拉加载更多
+            @Override
+            public void onLoadMore(RefreshLayout refreshlayout) {
+//                if(!endLoading){
+//                    pages++;
+//                    setArticleCard(title,pages,1);
+//                    articleAdapter = new ArticleAdapter(getActivity(), articleCardList);
+//                    recyclerView.setAdapter(articleAdapter);
+//                }
+//                else  {
+                    refreshLayout.finishLoadMoreWithNoMoreData();
+//                    refreshlayout.finishLoadMore(false);//传入false表示加载失败
+//                }
 
-    }
-    private void initArticleView() {
-       //根据标题添加对应类目的文章
-        System.out.println("目前标题为"+title);
-        if(title.equals("心理")) setArticleCard(1);
-        else if (title.equals("科普")) setArticleCard(2);
-        else if (title.equals("婚恋")) setArticleCard(3);
-        else if (title.equals("家庭")) setArticleCard(4);
-        else if (title.equals("教育")) setArticleCard(5);
-        else if (title.equals("人际")) setArticleCard(6);
-        else if (title.equals("睡眠")) setArticleCard(7);
-        else if (title.equals("性别")) setArticleCard(8);
-        else if (title.equals("性格")) setArticleCard(9);
-        else if (title.equals("职场")) setArticleCard(10);
-        else setArticleCard(0);
+            }
+        });
 
     }
 //    设置推荐分类下的文章
@@ -88,32 +100,30 @@ public class HomeArticleFragment extends BaseFragment {
 
     }
 //    设置除推荐外各分类下的文章
-    private void setArticleCard(int type){
+    private void setArticleCard(int type,int pages,int flag){
         DBOperator dbOperator = new DBOperator(); //调用数据库
         new Thread(new Runnable() {
             @Override
             public void run() {
-                ArrayList<ArticleCard> list=dbOperator.GetArticleByType(type);
-                if(!list.isEmpty()||list.size()!=0){
-                for (int i = 0; i < list.size() ;i++) {
-//                   ArticleCard articleCard1 = new ArticleCard("今日文章"+i, R.mipmap.icon_colored, "青少年", "XXXX");
-//                   articleCardList.add(articleCard1);
-                    articleCardList.add(list.get(i));
-                }
-                Message msg = new Message();
-                msg.what = GET_TEXT;
-                handler.sendMessage(msg);
+                ArrayList<ArticleCard> list;
+                if (type==0)  list=dbOperator.test();
+                else list=dbOperator.GetArticleByType(type);
+                System.out.println("LIST.SIZE()"+list.size());
+                if(!list.isEmpty()||list.size()!=0) {
+//                   已有数据<4，结束下次刷新
+                    if(list.size()!=4) endLoading=true;
+//                    加载,添加数据；刷新，覆盖数据；
+                    if (flag==1) articleCardList.addAll(list);
+                    else articleCardList=list;
+                    Message msg = new Message();
+                    msg.what = GET_TEXT;
+                    handler.sendMessage(msg);
                 }
                 else{
                     Message msg = new Message();
                     msg.what = INIT_TEXT;
                     handler.sendMessage(msg);
                 }
-                refreshLayout.setRefreshing(true);
-                if (refreshLayout.isRefreshing()) {
-                    refreshLayout.setRefreshing(false);
-                }
-
             }
         }).start();
     }
@@ -123,12 +133,10 @@ public class HomeArticleFragment extends BaseFragment {
         public void handleMessage(@NonNull Message msg) {
             switch (msg.what){
                 case GET_TEXT:
-                    System.out.println("已得到文章内容");
-//                  刷新页面以展示绑定数据
-//                    mRootView.invalidate();
+                    Log.d("HomeArticleFragment", "已得到文章内容");
                     break;
                 case INIT_TEXT:
-                    System.out.println("未得到文章内容，error");
+                    Log.d("HomeArticleFragment", "未得到文章内容");
                     break;
                 default:
                     break;

@@ -7,17 +7,29 @@
     android:orientation="vertical"
     tools:context=".Activity.Fragment.MainFragment.Test.TestAbilityFragment">
 
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+<com.scwang.smartrefresh.layout.SmartRefreshLayout
     android:id="@+id/home_article_refresh"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <com.scwang.smartrefresh.layout.header.ClassicsHeader
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+<!--        xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--        app:srlPrimaryColor="@color/white"-->
+<!--        app:srlAccentColor="@color/pink"-->
+<!--        app:srlEnablePreviewInEditMode="true"/>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/home_article_rv"
         android:layout_gravity="center_horizontal"
-        android:layout_width="332dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="60dp"
         />
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
 </LinearLayout>

@@ -136,10 +136,37 @@ public class DBOperator {
         return null;
     }
     //查询文章type所对应的每个文章标题，类型，日期，内容，来源信息
-    public ArrayList<ArticleCard> GetArticleByType(int type){
-        System.out.println("GetArticleByType，当前type为："+type);
+    public ArrayList<ArticleCard> GetArticleByType(int type,int pages){
         ArrayList<ArticleCard> list=new ArrayList<>();
-        String sql = "select id_article,content,title from article where type =?";
+        String sql = "select id_article,content,title from article where type=? limit ?,?";
+        try (Connection conn = DBOpenHelper.getConn();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1,type);
+            stmt.setInt(2,pages*4);
+            stmt.setInt(3,(pages+1)*4);
+            try(ResultSet rs = stmt.executeQuery()) {
+                while(rs.next()) {
+                    ArticleCard articleCard=new ArticleCard();
+                    articleCard.setId(rs.getInt(1));
+                    articleCard.setContent(rs.getString(2));
+                    articleCard.setTitle(rs.getString(3));
+                    articleCard.setLabel(getArticleType(type));
+                    articleCard.setImageId(R.mipmap.guide_test_bg);
+                    list.add(articleCard);
+
+                }
+                System.out.println("type"+type+"中文章数目共有"+list.size());
+                DBOpenHelper.closeAll(conn,stmt,rs);
+                return list;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public ArrayList<ArticleCard> GetArticleByType(int type){
+        ArrayList<ArticleCard> list=new ArrayList<>();
+        String sql = "select id_article,content,title from article where type=?";
         try (Connection conn = DBOpenHelper.getConn();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1,type);
@@ -155,6 +182,56 @@ public class DBOperator {
 
                 }
                 System.out.println("type"+type+"中文章数目共有"+list.size());
+                DBOpenHelper.closeAll(conn,stmt,rs);
+                return list;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public ArrayList<ArticleCard> test(int pages){
+        ArrayList<ArticleCard> list=new ArrayList<>();
+        String sql="select id_article,content,title from article limit ?,?";
+        try (Connection conn = DBOpenHelper.getConn();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1,pages*4);
+            stmt.setInt(2,(pages+1)*4);
+            try(ResultSet rs = stmt.executeQuery()) {
+                while(rs.next()) {
+                    ArticleCard articleCard=new ArticleCard();
+                    articleCard.setId(rs.getInt(1));
+                    articleCard.setContent(rs.getString(2));
+                    articleCard.setTitle(rs.getString(3));
+                    articleCard.setLabel("推荐");
+                    articleCard.setImageId(R.mipmap.guide_test_bg);
+                    list.add(articleCard);
+
+                }
+                DBOpenHelper.closeAll(conn,stmt,rs);
+                return list;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public ArrayList<ArticleCard> test(){
+        ArrayList<ArticleCard> list=new ArrayList<>();
+        String sql="select id_article,content,title from article limit 0,10";
+        try (Connection conn = DBOpenHelper.getConn();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            try(ResultSet rs = stmt.executeQuery()) {
+                while(rs.next()) {
+                    ArticleCard articleCard=new ArticleCard();
+                    articleCard.setId(rs.getInt(1));
+                    articleCard.setContent(rs.getString(2));
+                    articleCard.setTitle(rs.getString(3));
+                    articleCard.setLabel("推荐");
+                    articleCard.setImageId(R.mipmap.guide_test_bg);
+                    list.add(articleCard);
+
+                }
                 DBOpenHelper.closeAll(conn,stmt,rs);
                 return list;
             }
